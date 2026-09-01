@@ -2476,7 +2476,7 @@
 <h2 id="1-공통-규약">1. 공통 규약<a class="headerlink" href="#1-공통-규약" title="Permanent link">&para;</a></h2>
 <h3 id="응답-형식">응답 형식<a class="headerlink" href="#응답-형식" title="Permanent link">&para;</a></h3>
 <p>모든 응답은 JSON 형식입니다. 에러 응답:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;에러 메시지&quot;</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"에러 메시지"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h3 id="http-상태-코드">HTTP 상태 코드<a class="headerlink" href="#http-상태-코드" title="Permanent link">&para;</a></h3>
 <table>
@@ -2557,7 +2557,7 @@
 </tbody>
 </table>
 <p><strong>응답</strong>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTP가 전송되었습니다.&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;phone_masked&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;010-****-2823&quot;</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTP가 전송되었습니다."</span><span class="p">,</span><span class="w"> </span><span class="nt">"phone_masked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"010-****-2823"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></p>
 <p><strong>에러</strong>
 - <code>401</code>: 이메일 또는 비밀번호 불일치</p>
@@ -2590,7 +2590,7 @@
 </tbody>
 </table>
 <p><strong>응답</strong>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOi...&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin@company.com&quot;</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOi..."</span><span class="p">,</span><span class="w"> </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@company.com"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></p>
 <p><strong>에러</strong>
 - <code>401</code>: 인증번호 불일치 또는 만료</p>
@@ -2609,8 +2609,8 @@
 <p>API 서버 상태 확인</p>
 <p><strong>응답 예시</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
@@ -2618,15 +2618,15 @@
 <p>대시보드용 전체 현황 요약 (장비 수 + 활성 알람 수)</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="nt">"devices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;alerts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;critical&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;warning&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="nt">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"critical"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
@@ -2635,23 +2635,23 @@
 <p><strong>Prefix:</strong> <code>/api/devices</code></p>
 <h3 id="장비-객체-deviceout">장비 객체 (DeviceOut)<a class="headerlink" href="#장비-객체-deviceout" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.131&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;device_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;switch&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HQ-2F&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;vendor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cisco&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WS-C3560X-24&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;up&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;snmp_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v2c&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;snmp_community&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;public&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;snmp_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">161</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;last_polled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:48:59.531214Z&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;poll_interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;alert_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;remark&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-28T02:05:26.235578Z&quot;</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"hostname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW-L3-HQ-01"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.131"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"switch"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HQ-2F"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cisco"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WS-C3560X-24"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"up"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snmp_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2c"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snmp_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snmp_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">161</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"last_polled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-29T03:48:59.531214Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"poll_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"alert_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"remark"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-28T02:05:26.235578Z"</span>
 <span class="p">}</span>
 </code></pre></div>
 <table>
@@ -2677,11 +2677,11 @@
 <p>장비 상태별 통계</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;warning&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;unknown&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"unknown"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
@@ -2908,13 +2908,13 @@
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;ifindex&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;ifname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet0/1&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;ifdescr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet0/1&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;ifspeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;if_oper_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;if_admin_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ifindex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ifname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GigabitEthernet0/1"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ifdescr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GigabitEthernet0/1"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ifspeed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"if_oper_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"if_admin_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
@@ -2942,50 +2942,50 @@
 <p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.131&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;up&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;device_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;switch&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;sys_descr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cisco IOS Software ...&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;sys_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;sys_uptime_secs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">864000</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;sys_uptime_str&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10일 0시간 0분 0초&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;sys_location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HQ Server Room&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;sys_contact&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin@company.com&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;last_polled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:48:59.531214Z&quot;</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"hostname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW-L3-HQ-01"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.131"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"up"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"switch"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"system"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"sys_descr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cisco IOS Software ..."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sys_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW-L3-HQ-01"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sys_uptime_secs"</span><span class="p">:</span><span class="w"> </span><span class="mi">864000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sys_uptime_str"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10일 0시간 0분 0초"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sys_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HQ Server Room"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sys_contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@company.com"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"last_polled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-29T03:48:59.531214Z"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;interfaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"interfaces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ifindex&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ifname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gi0/1&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ifdescr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet0/1&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ifalias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uplink to Core&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ifspeed_bps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;if_oper_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;if_admin_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;in_bps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">15234567.0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;out_bps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8432100.0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;in_errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;out_errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;in_discards&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;out_discards&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ifindex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ifname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gi0/1"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ifdescr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GigabitEthernet0/1"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ifalias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uplink to Core"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ifspeed_bps"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"if_oper_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"if_admin_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"in_bps"</span><span class="p">:</span><span class="w"> </span><span class="mf">15234567.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"out_bps"</span><span class="p">:</span><span class="w"> </span><span class="mf">8432100.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"in_errors"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"out_errors"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"in_discards"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"out_discards"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;cpu_util&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;mem_util&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">43.2</span>
+<span class="w">  </span><span class="nt">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"cpu_util"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"mem_util"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.2</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;protocols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ping_rtt_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.45</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;ping_loss_pct&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;icmp_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12450</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;icmp_out&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12449</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;tcp_curr_estab&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;udp_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">98234</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;udp_out&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">95123</span>
+<span class="w">  </span><span class="nt">"protocols"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ping_rtt_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.45</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ping_loss_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"icmp_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">12450</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"icmp_out"</span><span class="p">:</span><span class="w"> </span><span class="mi">12449</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"tcp_curr_estab"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"udp_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">98234</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"udp_out"</span><span class="p">:</span><span class="w"> </span><span class="mi">95123</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
@@ -3023,7 +3023,7 @@
 <p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;total_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">107374182400</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;used_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">53687091200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;free_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">53687091200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;util_pct&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\"</span><span class="p">,</span><span class="w"> </span><span class="nt">"total_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">107374182400</span><span class="p">,</span><span class="w"> </span><span class="nt">"used_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">53687091200</span><span class="p">,</span><span class="w"> </span><span class="nt">"free_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">53687091200</span><span class="p">,</span><span class="w"> </span><span class="nt">"util_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="w"> </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
 <p>서버 유형 장비에서만 의미 있는 데이터가 채워집니다 (<code>docs/manual.md</code> 7장 자원 탭 참고).</p>
@@ -3047,17 +3047,17 @@
 <p><strong>프로브 목록</strong>: HR-MIB CPU/Storage, UCD CPU/Mem, Cisco CPU/Mem, TP-Link CPU/Mem, H3C CPU/Mem, Huawei CPU, Zyxel CPU, Mikrotik CPU, Juniper CPU, FortiGate, Handreamnet, NetScreen 등 (<code>docs/manual.md</code> 14장의 벤더 OID 참고표와 동일한 목록)</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.121&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L2-HQ-01&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;snmp_community&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;public&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;snmp_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">161</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;probes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;HR-MIB CPU&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.25.3.3.1.2.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Integer&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.121"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"hostname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW-L2-HQ-01"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snmp_community"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snmp_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">161</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"probes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"HR-MIB CPU"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.6.1.2.1.25.3.3.1.2.1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Integer"</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;Cisco CPU&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">    </span><span class="nt">&quot;TP-Link CPU&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No SNMP response&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="nt">"Cisco CPU"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">"TP-Link CPU"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No SNMP response"</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
@@ -3187,10 +3187,10 @@
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:00:00Z&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu_util&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;interface_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-29T03:00:00Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"metric_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpu_util"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"interface_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
@@ -3231,16 +3231,16 @@
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:48:59Z&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu_util&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;interface_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span>
+<span class="w">    </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-29T03:48:59Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"metric_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpu_util"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"interface_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span>
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:48:59Z&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;if_in_octets&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;interface_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">15234567.0</span>
+<span class="w">    </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-29T03:48:59Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"metric_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"if_in_octets"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"interface_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">15234567.0</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
@@ -3257,19 +3257,19 @@
 <p><strong>Prefix:</strong> <code>/api/alerts</code></p>
 <h3 id="알람-객체-alertout">알람 객체 (AlertOut)<a class="headerlink" href="#알람-객체-alertout" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu_util&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;interface_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;warning&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">85.3</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">80.0</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CPU 사용률 85.3% — WARNING 임계값(80%) 초과&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;triggered_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:30:00Z&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;resolved_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;acknowledged_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;acknowledged_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"metric_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpu_util"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"interface_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"severity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"warning"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">85.3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"threshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">80.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPU 사용률 85.3% — WARNING 임계값(80%) 초과"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"triggered_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-29T03:30:00Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"resolved_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"acknowledged_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"acknowledged_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />
@@ -3277,10 +3277,10 @@
 <p>활성 알람 통계</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;total_active&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;critical&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;warning&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;info&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="nt">"total_active"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"critical"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
@@ -3370,14 +3370,14 @@
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;vendor&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu_util&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;warning_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">80.0</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;critical_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">95.0</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"metric_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpu_util"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"warning_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">80.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"critical_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">95.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
@@ -3528,7 +3528,7 @@
 <p>등록된 장비 중 벤더/모델 조합 목록 (벤더별 임계치 설정 UI의 드롭다운용)</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;vendor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fortigate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FG201E&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;device_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fortigate"</span><span class="p">,</span><span class="w"> </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FG201E"</span><span class="p">,</span><span class="w"> </span><span class="nt">"device_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
 <hr />
@@ -3536,14 +3536,14 @@
 <p>이메일 알림 설정 조회</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;recipients&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ops@company.com;noc@company.com&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;notify_on_down&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;notify_on_critical&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;notify_on_warning&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;down_interval_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;critical_interval_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;warning_interval_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">  </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ops@company.com;noc@company.com"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"notify_on_down"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"notify_on_critical"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"notify_on_warning"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"down_interval_min"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"critical_interval_min"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"warning_interval_min"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <blockquote>이 API는 <strong>수신자·발송 여부·반복 간격</strong>만 관리합니다. SMTP 서버 자체(호스트/포트/계정/비밀번호/발신자)는 API로 변경할 수 없고 <code>SMTP_HOST</code>/<code>SMTP_PORT</code>/<code>SMTP_USER</code>/<code>SMTP_PASSWORD</code>/<code>SMTP_FROM</code> 환경변수(<code>backend/app/config.py</code>)로만 설정하며, 반영하려면 백엔드 재시작이 필요합니다.</blockquote>
@@ -3561,24 +3561,24 @@
 <h3 id="노드--엣지-객체">노드 / 엣지 객체<a class="headerlink" href="#노드--엣지-객체" title="Permanent link">&para;</a></h3>
 <p><strong>TopologyNode</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.131&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;sys_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;device_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;switch&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;x_pos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">450.0</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;y_pos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">300.0</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.131"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"hostname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW-L3-HQ-01"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"sys_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW-L3-HQ-01"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"switch"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"x_pos"</span><span class="p">:</span><span class="w"> </span><span class="mf">450.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"y_pos"</span><span class="p">:</span><span class="w"> </span><span class="mf">300.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <p><strong>TopologyEdge</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;source_node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;target_node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;source_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gi0/1&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;target_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gi1/0/24&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;link_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldp&quot;</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"source_node_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"target_node_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"source_port"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gi0/1"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"target_port"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gi1/0/24"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"link_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lldp"</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
@@ -3628,8 +3628,8 @@
 </table>
 <p><strong>응답</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;task_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a3f8c1d2-...&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;running&quot;</span>
+<span class="w">  </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3f8c1d2-..."</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"running"</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
@@ -3638,9 +3638,9 @@
 <p><strong>경로 파라미터</strong>: <code>task_id</code> (string)</p>
 <p><strong>응답</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;snapshot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snapshot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <table>
@@ -3670,11 +3670,11 @@
 <p>가장 최근 활성 토폴로지 스냅샷 조회</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;snapshot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;cidr_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.0/24&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;discovered_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T02:00:00Z&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span>
+<span class="w">  </span><span class="nt">"snapshot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cidr_range"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.0/24"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"discovered_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-29T02:00:00Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"nodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <p><strong>에러</strong>
@@ -3696,11 +3696,11 @@
 <p><strong>응답</strong>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Auto-discovered&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;cidr_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.0/24&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;is_active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;discovered_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T02:00:00Z&quot;</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auto-discovered"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"cidr_range"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.0/24"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"is_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"discovered_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-29T02:00:00Z"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
@@ -3726,25 +3726,25 @@
 </table>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RFC1213-MIB.mib&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ifDescr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.2.2.1.2&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DisplayString&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A textual string containing information about the interface.&quot;</span>
+<span class="w">  </span><span class="nt">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RFC1213-MIB.mib"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"nodes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ifDescr"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.6.1.2.1.2.2.1.2"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"syntax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DisplayString"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A textual string containing information about the interface."</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;ifOperStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.2.2.1.8&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INTEGER&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="nt">"ifOperStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.6.1.2.1.2.2.1.8"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"syntax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INTEGER"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;unknownNode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;parent_hint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enterprise&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="nt">"unknownNode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"syntax"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"parent_hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enterprise"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -3802,9 +3802,9 @@
 <p><strong>응답</strong> (최대 500개)
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.2.2.1.2.1&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet0/1&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DisplayString&quot;</span>
+<span class="w">    </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.6.1.2.1.2.2.1.2.1"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GigabitEthernet0/1"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DisplayString"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
@@ -3817,9 +3817,9 @@
 <p><strong>요청 본문</strong>: Walk와 동일</p>
 <p><strong>응답</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.1.5.0&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DisplayString&quot;</span>
+<span class="w">  </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.6.1.2.1.1.5.0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW-L3-HQ-01"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DisplayString"</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <p><strong>에러</strong>
@@ -3834,12 +3834,12 @@
 <p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
 <p><strong>응답 스키마</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;processes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;pid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;httpsd&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;cpu_pct&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;mem_kb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45056</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;running&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;pss_kb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45056</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"processes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"httpsd"</span><span class="p">,</span><span class="w"> </span><span class="nt">"cpu_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="nt">"mem_kb"</span><span class="p">:</span><span class="w"> </span><span class="mi">45056</span><span class="p">,</span><span class="w"> </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"running"</span><span class="p">,</span><span class="w"> </span><span class="nt">"pss_kb"</span><span class="p">:</span><span class="w"> </span><span class="mi">45056</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;total_mem_kb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3796992</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;used_mem_kb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2400000</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;polled_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1735500000.0</span>
+<span class="w">  </span><span class="nt">"total_mem_kb"</span><span class="p">:</span><span class="w"> </span><span class="mi">3796992</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"used_mem_kb"</span><span class="p">:</span><span class="w"> </span><span class="mi">2400000</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"polled_at"</span><span class="p">:</span><span class="w"> </span><span class="mf">1735500000.0</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <p><strong>에러</strong>
@@ -3854,14 +3854,14 @@
 <p>여러 IP를 한 번에 조회 (공인 IP는 최대 100개씩 배치 처리)</p>
 <p><strong>요청 본문</strong>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203.0.113.10&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;서울 본사&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"203.0.113.10"</span><span class="p">,</span><span class="w"> </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"서울 본사"</span><span class="w"> </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div></p>
 <p><strong>응답</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;203.0.113.10&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">37.5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;lng&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">127.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Seoul&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Korea&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;192.168.1.1&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">37.5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;lng&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">127.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;서울&quot;</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Korea&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"203.0.113.10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">37.5</span><span class="p">,</span><span class="w"> </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">127.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seoul"</span><span class="p">,</span><span class="w"> </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Korea"</span><span class="p">,</span><span class="w"> </span><span class="nt">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"192.168.1.1"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">37.5</span><span class="p">,</span><span class="w"> </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">127.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"서울"</span><span class="p">,</span><span class="w">  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Korea"</span><span class="p">,</span><span class="w"> </span><span class="nt">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />

@@ -768,14 +768,14 @@
 <h1 id="zenithnms--system-architecture">ZenithNMS — System Architecture<a class="headerlink" href="#zenithnms--system-architecture" title="Permanent link">&para;</a></h1>
 <h2 id="system-overview-mermaid">System Overview (Mermaid)<a class="headerlink" href="#system-overview-mermaid" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>flowchart TB
-    subgraph Frontend [&quot;Frontend (React + Tailwind)&quot;]
+    subgraph Frontend ["Frontend (React + Tailwind)"]
         DASH[Dashboard\nKPI + Device Grid]
         DEV[Devices\nTable / Detail]
         TOPO[Topology Map\nReact Flow]
         ALT[Alerts\nEvent Log]
     end
 
-    subgraph Backend [&quot;Backend (FastAPI + asyncio)&quot;]
+    subgraph Backend ["Backend (FastAPI + asyncio)"]
         direction TB
         API[REST API\nFastAPI Routers]
         POLLER[Poller Engine\nasyncio Semaphore Pool]
@@ -784,9 +784,9 @@
         DISCO[Topology Builder\nLLDP/CDP Discovery]
     end
 
-    subgraph DB [&quot;PostgreSQL 16&quot;]
+    subgraph DB ["PostgreSQL 16"]
         META[Device Metadata\ndevices / interfaces]
-        subgraph TS [&quot;Time-series (RRD)&quot;]
+        subgraph TS ["Time-series (RRD)"]
             RAW[metrics_raw\n1-min / 7d]
             HOUR[metrics_hourly\n1-hr / 30d]
             DAY[metrics_daily\n1-day / 365d]
@@ -795,7 +795,7 @@
         TOPODB[topology_snapshots\nnodes / edges]
     end
 
-    subgraph Network [&quot;Network Devices&quot;]
+    subgraph Network ["Network Devices"]
         SW[Switches]
         RT[Routers]
         SRV[Servers]
@@ -968,7 +968,7 @@ Phase 6 — DB Persistence
 │   └── Walk/GET 실행 + SNMP 진단(snmp-diag)
 │
 └── UserManual
-    ├── 좌측 목차 (docs/manual.md의 &quot;## N. 제목&quot; h2를 파싱해 자동 생성)
+    ├── 좌측 목차 (docs/manual.md의 "## N. 제목" h2를 파싱해 자동 생성)
     └── 콘텐츠 (docs/manual.md를 GET /api/manual/user로 받아 react-markdown 렌더링)
 </code></pre></div>
 <hr />
