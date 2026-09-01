@@ -1,0 +1,3960 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="장금상선 내부 네트워크 장비를 모니터링하는 Network Management System 문서">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../api-reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>사용자 매뉴얼 - ZenithNMS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zenithnms-사용자-매뉴얼" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="ZenithNMS" class="md-header__button md-logo" aria-label="ZenithNMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZenithNMS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              사용자 매뉴얼
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SinokorOfficial/zenithnms" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SinokorOfficial/zenithnms
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  사용자 매뉴얼
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API 참조
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ARCHITECTURE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  아키텍처
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../DEPLOYMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  배포 가이드
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../RUNBOOK/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  운영 런북
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ZenithNMS" class="md-nav__button md-logo" aria-label="ZenithNMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ZenithNMS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SinokorOfficial/zenithnms" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SinokorOfficial/zenithnms
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사용자 매뉴얼
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사용자 매뉴얼
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#목차" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        목차
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-시스템-개요" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 시스템 개요
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 시스템 개요">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#주요-기능" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 기능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#기술-스택" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기술 스택
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#수집-데이터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        수집 데이터
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-로그인-및-인증" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 로그인 및 인증
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 로그인 및 인증">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#로그인-절차" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로그인 절차
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otp-특성" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTP 특성
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-시작-및-종료" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 시작 및 종료
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 시작 및 종료">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#최초-실행-빌드-포함" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        최초 실행 (빌드 포함)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#일반-시작" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        일반 시작
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#특정-서비스만-재빌드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특정 서비스만 재빌드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#상태-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        상태 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#로그-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로그 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#종료" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종료
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-접속-방법" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 접속 방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-대시보드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 대시보드
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 대시보드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#표시-항목" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        표시 항목
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비별-cpu메모리-패널-상세" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비별 CPU/메모리 패널 상세
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-장비-목록" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 장비 목록
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 장비 목록">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#장비-등록" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 등록
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmpv3-설정-snmp-버전을-v3으로-선택한-경우" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMPv3 설정 (SNMP 버전을 v3으로 선택한 경우)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비-검색-및-필터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 검색 및 필터
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#상태-배지" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        상태 배지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비-수정--삭제--알람-토글" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 수정 / 삭제 / 알람 토글
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-장비-상세-패널" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 장비 상세 패널
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 장비 상세 패널">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#시스템-탭" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시스템 탭
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#인터페이스-탭" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인터페이스 탭
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#자원-탭" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자원 탭
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#프로토콜-탭" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로토콜 탭
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-프로세스-모니터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 프로세스 모니터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 프로세스 모니터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#컬럼" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컬럼
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#사용법" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용법
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-장애-예측" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 장애 예측
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 장애 예측">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#예측-원리" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예측 원리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#이상-탐지-원리" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이상 탐지 원리
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-토폴로지-맵" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 토폴로지 맵
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 토폴로지 맵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#자동-탐색" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자동 탐색
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6가지-맵-스타일-사이드바-토폴로지-맵-하위-메뉴" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6가지 맵 스타일 (사이드바 "토폴로지 맵" 하위 메뉴)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#그래프-조작" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        그래프 조작
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-알람-센터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 알람 센터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 알람 센터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#알람-상태--심각도" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        알람 상태 / 심각도
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#임계치-적용-우선순위" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        임계치 적용 우선순위
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#알람-확인--해결" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        알람 확인 / 해결
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#필터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        필터
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#이메일-알림-설정" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이메일 알림 설정
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-mib-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. MIB Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. MIB Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#기본-사용법" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 사용법
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mib-파일-로드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MIB 파일 로드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp-진단-snmp-diag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMP 진단 (snmp-diag)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-snmp-설정-가이드-장비-측" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. SNMP 설정 가이드 (장비 측)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. SNMP 설정 가이드 (장비 측)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cisco-ios--ios-xe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cisco IOS / IOS-XE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cisco-nx-os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cisco NX-OS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fortigate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FortiGate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#juniper-junos-srxexmx-등" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Juniper Junos (SRX/EX/MX 등)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#juniper-ssg--screenos-netscreen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Juniper SSG / ScreenOS (NetScreen)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-link-tl-sg2xxx--t2600g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP-Link (TL-SG2xxx / T2600G)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handrim-한드림넷-sg2024gpoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handrim (한드림넷) SG2024GPOE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-폴링-엔진-구조" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. 폴링 엔진 구조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. 폴링 엔진 구조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu-수집-전략-순서" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU 수집 전략 순서
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#메모리-수집-전략-순서" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메모리 수집 전략 순서
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#지원-벤더-및-cpu메모리-oid-참고표" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        지원 벤더 및 CPU/메모리 OID 참고표
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#수집-메트릭-id-참고표" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        수집 메트릭 ID 참고표
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp-폴링-파라미터-환경변수-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMP 폴링 파라미터 (환경변수, docker-compose.yml)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#메트릭-보존-정책" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메트릭 보존 정책
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-데이터베이스-스키마-요약" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 데이터베이스 스키마 요약
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. 데이터베이스 스키마 요약">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#직접-db-접속-진단용" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        직접 DB 접속 (진단용)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-장애-진단" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 장애 진단
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. 장애 진단">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#인터페이스-탭에-데이터-없음" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인터페이스 탭에 데이터 없음
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu메모리-표시-안-됨-또는-값이-이상함" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU/메모리 표시 안 됨 또는 값이 이상함
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비-status--down인데-실제로는-살아있음" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 status = down인데 실제로는 살아있음
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#폴링이-전혀-안-됨" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        폴링이 전혀 안 됨
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-모바일-접속-wsl2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 모바일 접속 (WSL2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. 모바일 접속 (WSL2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1단계--wsl-ip-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1단계 — WSL IP 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2단계--포트포워딩-관리자-권한-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2단계 — 포트포워딩 (관리자 권한 PowerShell)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3단계--방화벽-허용" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3단계 — 방화벽 허용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4단계--모바일-접속" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4단계 — 모바일 접속
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-변경-이력" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. 변경 이력
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 참조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    배포 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNBOOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    운영 런북
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#목차" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        목차
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-시스템-개요" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 시스템 개요
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 시스템 개요">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#주요-기능" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 기능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#기술-스택" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기술 스택
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#수집-데이터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        수집 데이터
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-로그인-및-인증" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 로그인 및 인증
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 로그인 및 인증">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#로그인-절차" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로그인 절차
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otp-특성" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTP 특성
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-시작-및-종료" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 시작 및 종료
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 시작 및 종료">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#최초-실행-빌드-포함" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        최초 실행 (빌드 포함)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#일반-시작" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        일반 시작
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#특정-서비스만-재빌드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특정 서비스만 재빌드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#상태-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        상태 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#로그-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로그 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#종료" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종료
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-접속-방법" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 접속 방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-대시보드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 대시보드
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 대시보드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#표시-항목" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        표시 항목
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비별-cpu메모리-패널-상세" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비별 CPU/메모리 패널 상세
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-장비-목록" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 장비 목록
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 장비 목록">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#장비-등록" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 등록
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmpv3-설정-snmp-버전을-v3으로-선택한-경우" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMPv3 설정 (SNMP 버전을 v3으로 선택한 경우)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비-검색-및-필터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 검색 및 필터
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#상태-배지" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        상태 배지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비-수정--삭제--알람-토글" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 수정 / 삭제 / 알람 토글
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-장비-상세-패널" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 장비 상세 패널
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 장비 상세 패널">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#시스템-탭" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시스템 탭
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#인터페이스-탭" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인터페이스 탭
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#자원-탭" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자원 탭
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#프로토콜-탭" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로토콜 탭
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-프로세스-모니터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 프로세스 모니터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 프로세스 모니터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#컬럼" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컬럼
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#사용법" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용법
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-장애-예측" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 장애 예측
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 장애 예측">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#예측-원리" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예측 원리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#이상-탐지-원리" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이상 탐지 원리
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-토폴로지-맵" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 토폴로지 맵
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 토폴로지 맵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#자동-탐색" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자동 탐색
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6가지-맵-스타일-사이드바-토폴로지-맵-하위-메뉴" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6가지 맵 스타일 (사이드바 "토폴로지 맵" 하위 메뉴)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#그래프-조작" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        그래프 조작
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-알람-센터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 알람 센터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 알람 센터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#알람-상태--심각도" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        알람 상태 / 심각도
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#임계치-적용-우선순위" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        임계치 적용 우선순위
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#알람-확인--해결" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        알람 확인 / 해결
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#필터" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        필터
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#이메일-알림-설정" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이메일 알림 설정
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-mib-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. MIB Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. MIB Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#기본-사용법" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 사용법
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mib-파일-로드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MIB 파일 로드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp-진단-snmp-diag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMP 진단 (snmp-diag)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-snmp-설정-가이드-장비-측" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. SNMP 설정 가이드 (장비 측)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. SNMP 설정 가이드 (장비 측)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cisco-ios--ios-xe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cisco IOS / IOS-XE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cisco-nx-os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cisco NX-OS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fortigate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FortiGate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#juniper-junos-srxexmx-등" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Juniper Junos (SRX/EX/MX 등)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#juniper-ssg--screenos-netscreen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Juniper SSG / ScreenOS (NetScreen)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-link-tl-sg2xxx--t2600g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP-Link (TL-SG2xxx / T2600G)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handrim-한드림넷-sg2024gpoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handrim (한드림넷) SG2024GPOE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-폴링-엔진-구조" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. 폴링 엔진 구조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. 폴링 엔진 구조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu-수집-전략-순서" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU 수집 전략 순서
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#메모리-수집-전략-순서" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메모리 수집 전략 순서
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#지원-벤더-및-cpu메모리-oid-참고표" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        지원 벤더 및 CPU/메모리 OID 참고표
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#수집-메트릭-id-참고표" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        수집 메트릭 ID 참고표
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp-폴링-파라미터-환경변수-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMP 폴링 파라미터 (환경변수, docker-compose.yml)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#메트릭-보존-정책" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메트릭 보존 정책
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-데이터베이스-스키마-요약" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 데이터베이스 스키마 요약
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. 데이터베이스 스키마 요약">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#직접-db-접속-진단용" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        직접 DB 접속 (진단용)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-장애-진단" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 장애 진단
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. 장애 진단">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#인터페이스-탭에-데이터-없음" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인터페이스 탭에 데이터 없음
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu메모리-표시-안-됨-또는-값이-이상함" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU/메모리 표시 안 됨 또는 값이 이상함
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비-status--down인데-실제로는-살아있음" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 status = down인데 실제로는 살아있음
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#폴링이-전혀-안-됨" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        폴링이 전혀 안 됨
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-모바일-접속-wsl2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 모바일 접속 (WSL2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. 모바일 접속 (WSL2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1단계--wsl-ip-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1단계 — WSL IP 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2단계--포트포워딩-관리자-권한-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2단계 — 포트포워딩 (관리자 권한 PowerShell)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3단계--방화벽-허용" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3단계 — 방화벽 허용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4단계--모바일-접속" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4단계 — 모바일 접속
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-변경-이력" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. 변경 이력
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="zenithnms-사용자-매뉴얼">ZenithNMS 사용자 매뉴얼<a class="headerlink" href="#zenithnms-사용자-매뉴얼" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>ZenithNMS</strong> — 고성능 네트워크 관리 시스템 (Network Management System)
+FastAPI + PostgreSQL + React 기반 SNMP 폴링 플랫폼</p>
+</blockquote>
+<hr />
+<h2 id="목차">목차<a class="headerlink" href="#목차" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-시스템-개요">시스템 개요</a></li>
+<li><a href="#2-로그인-및-인증">로그인 및 인증</a></li>
+<li><a href="#3-시작-및-종료">시작 및 종료</a></li>
+<li><a href="#4-접속-방법">접속 방법</a></li>
+<li><a href="#5-대시보드">대시보드</a></li>
+<li><a href="#6-장비-목록">장비 목록</a></li>
+<li><a href="#7-장비-상세-패널">장비 상세 패널</a></li>
+<li><a href="#8-프로세스-모니터">프로세스 모니터</a></li>
+<li><a href="#9-장애-예측">장애 예측</a></li>
+<li><a href="#10-토폴로지-맵">토폴로지 맵</a></li>
+<li><a href="#11-알람-센터">알람 센터</a></li>
+<li><a href="#12-mib-browser">MIB Browser</a></li>
+<li><a href="#13-snmp-설정-가이드-장비-측">SNMP 설정 가이드 (장비 측)</a></li>
+<li><a href="#14-폴링-엔진-구조">폴링 엔진 구조</a></li>
+<li><a href="#15-데이터베이스-스키마-요약">데이터베이스 스키마 요약</a></li>
+<li><a href="#16-장애-진단">장애 진단</a></li>
+<li><a href="#17-모바일-접속-wsl2">모바일 접속 (WSL2)</a></li>
+<li><a href="#18-변경-이력">변경 이력</a></li>
+</ol>
+<hr />
+<h2 id="1-시스템-개요">1. 시스템 개요<a class="headerlink" href="#1-시스템-개요" title="Permanent link">&para;</a></h2>
+<h3 id="주요-기능">주요 기능<a class="headerlink" href="#주요-기능" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>메뉴</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>대시보드</td>
+<td>전체 장비 상태 현황, 활성 알람 요약, 장비별 CPU/메모리 패널</td>
+</tr>
+<tr>
+<td>장비 목록</td>
+<td>SNMP 장비 등록·수정·삭제, 4탭 상세 데이터 조회, 프로세스 모니터</td>
+</tr>
+<tr>
+<td>장애 예측</td>
+<td>선형회귀 기반 CPU/메모리 추세 예측, Z-score 이상 탐지</td>
+</tr>
+<tr>
+<td>토폴로지 맵</td>
+<td>LLDP/CDP 기반 네트워크 자동 탐색 및 6가지 스타일 시각화</td>
+</tr>
+<tr>
+<td>알람 센터</td>
+<td>임계값 기반 알람 조회·확인·해결, 임계치/이메일 알림 설정</td>
+</tr>
+<tr>
+<td>MIB Browser</td>
+<td>MIB 파일 파싱, SNMP Walk/GET 테스트, SNMP 진단</td>
+</tr>
+<tr>
+<td>사용자 매뉴얼</td>
+<td>바로 이 문서(<code>docs/manual.md</code>)를 앱 안에서 실시간 렌더링. 예전에 별도였던 "관리자 매뉴얼" 메뉴는 이 문서로 통합됨 (2026-08-28)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="기술-스택">기술 스택<a class="headerlink" href="#기술-스택" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구성 요소</th>
+<th>기술</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>백엔드</td>
+<td>Python 3.10 (Docker 이미지 기준) / FastAPI / asyncpg</td>
+</tr>
+<tr>
+<td>폴링 엔진</td>
+<td>pysnmp-lextudio (비동기 SNMP)</td>
+</tr>
+<tr>
+<td>데이터베이스</td>
+<td>PostgreSQL 16 (주 단위 파티션 테이블 기반 시계열)</td>
+</tr>
+<tr>
+<td>프런트엔드</td>
+<td>React 18 / TypeScript / Tailwind CSS / react-markdown</td>
+</tr>
+<tr>
+<td>인증</td>
+<td>JWT 액세스 토큰 + SMS(CoolSMS) OTP, 실패 시 이메일 폴백</td>
+</tr>
+<tr>
+<td>인프라</td>
+<td>Docker Compose / Nginx (프런트 정적 서빙 + <code>/api</code> 리버스 프록시)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="수집-데이터">수집 데이터<a class="headerlink" href="#수집-데이터" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>시스템 정보</strong>: sysDescr, sysName, sysUptime, sysLocation, sysContact</li>
+<li><strong>인터페이스</strong>: IF-MIB 전체 (ifName, ifDescr, ifAlias, ifSpeed, ifHighSpeed, OperStatus, 64비트 카운터)</li>
+<li><strong>CPU/메모리</strong>: 장비 벤더를 자동 감지해 벤더 전용 OID를 먼저 시도하고, 실패하면 범용 MIB로 순차 폴백 (자세한 내용은 <a href="#14-폴링-엔진-구조">14장</a> 참고)</li>
+<li><strong>프로토콜 통계</strong>: Ping RTT/손실, ICMP/TCP/UDP MIB-II 카운터</li>
+<li><strong>프로세스</strong>: HOST-RESOURCES-MIB hrSWRunTable (지원 장비에 한함, DB 미저장·실시간 조회)</li>
+</ul>
+<hr />
+<h2 id="2-로그인-및-인증">2. 로그인 및 인증<a class="headerlink" href="#2-로그인-및-인증" title="Permanent link">&para;</a></h2>
+<p>ZenithNMS는 <strong>단일 관리자 계정 + 2단계 인증(OTP)</strong> 구조입니다. 회원가입/다중 사용자 개념은 없습니다.</p>
+<h3 id="로그인-절차">로그인 절차<a class="headerlink" href="#로그인-절차" title="Permanent link">&para;</a></h3>
+<ol>
+<li>이메일/비밀번호 입력 → <code>POST /api/auth/login</code></li>
+<li>자격 증명이 맞으면 서버가 6자리 OTP를 생성해 등록된 휴대폰 번호로 SMS 발송 (<code>AUTH_USER_PHONE</code> 환경변수)</li>
+<li>화면에 마스킹된 번호(예: <code>010-****-2823</code>)로 발송 완료 안내</li>
+<li>OTP 입력 → <code>POST /api/auth/verify-otp</code> → 검증 성공 시 JWT 액세스 토큰 발급</li>
+<li>이후 요청은 <code>Authorization: Bearer &lt;token&gt;</code> 헤더로 인증</li>
+</ol>
+<h3 id="otp-특성">OTP 특성<a class="headerlink" href="#otp-특성" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>유효 시간</td>
+<td>5분 (300초)</td>
+</tr>
+<tr>
+<td>저장 방식</td>
+<td>백엔드 프로세스 <strong>in-memory</strong>(재시작 시 초기화) — 그래서 <code>uvicorn --workers 1</code> 고정 필요</td>
+</tr>
+<tr>
+<td>SMS 발송</td>
+<td>CoolSMS API (HMAC-SHA256 서명)</td>
+</tr>
+<tr>
+<td>SMS 자격증명 미설정 시</td>
+<td>이메일(SMTP)로 OTP 폴백 발송, 그래도 실패하면 백엔드 로그에 평문 OTP 기록</td>
+</tr>
+</tbody>
+</table>
+<blockquote>SMS/이메일 자격증명은 <code>auth.env</code>에 보관하며 절대 git에 커밋하지 않습니다.</blockquote>
+
+<hr />
+<h2 id="3-시작-및-종료">3. 시작 및 종료<a class="headerlink" href="#3-시작-및-종료" title="Permanent link">&para;</a></h2>
+<h3 id="최초-실행-빌드-포함">최초 실행 (빌드 포함)<a class="headerlink" href="#최초-실행-빌드-포함" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/zenithnms
+sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>down
+sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span>--no-cache
+sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<h3 id="일반-시작">일반 시작<a class="headerlink" href="#일반-시작" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/zenithnms
+sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<h3 id="특정-서비스만-재빌드">특정 서비스만 재빌드<a class="headerlink" href="#특정-서비스만-재빌드" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build<span class="w"> </span>backend<span class="w">    </span><span class="c1"># 백엔드만</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build<span class="w"> </span>frontend<span class="w">   </span><span class="c1"># 프런트엔드만 (npm run build 필요 없음, Dockerfile이 처리)</span>
+</code></pre></div>
+<h3 id="상태-확인">상태 확인<a class="headerlink" href="#상태-확인" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>ps
+</code></pre></div>
+<p>정상 상태:
+<div class="highlight"><pre><span></span><code>NAME               STATUS
+zenith_postgres    Up (healthy)
+zenith_backend     Up (healthy)
+zenith_frontend    Up
+</code></pre></div></p>
+<h3 id="로그-확인">로그 확인<a class="headerlink" href="#로그-확인" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w">               </span><span class="c1"># 전체 로그</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>backend<span class="w">       </span><span class="c1"># 백엔드 (폴링 엔진 포함)</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>frontend<span class="w">      </span><span class="c1"># 프런트엔드 (nginx 로그)</span>
+</code></pre></div>
+<h3 id="종료">종료<a class="headerlink" href="#종료" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>down
+</code></pre></div>
+<hr />
+<h2 id="4-접속-방법">4. 접속 방법<a class="headerlink" href="#4-접속-방법" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>주소</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>웹 앱</td>
+<td>http://localhost:3000</td>
+<td>React SPA (nginx가 정적 파일 서빙)</td>
+</tr>
+<tr>
+<td>API (프록시 경유)</td>
+<td>http://localhost:3000/api/...</td>
+<td>nginx가 <code>/api/</code>를 백엔드(8000)로 그대로 전달</td>
+</tr>
+<tr>
+<td>Swagger UI</td>
+<td>현재 미노출</td>
+<td>FastAPI 기본 <code>/docs</code>는 <code>/api</code> 프리픽스가 아니라서 nginx 프록시로는 접근 불가. 필요 시 <code>docker compose exec backend</code> 또는 백엔드 포트를 직접 호스트에 노출해야 함</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>localhost:5432 (user: zenith / pw: zenith / db: zenithnms)</td>
+<td>docker-compose에 직접 포트 매핑됨</td>
+</tr>
+</tbody>
+</table>
+<blockquote>백엔드 컨테이너 자체는 docker-compose상 호스트에 포트가 노출돼 있지 않습니다 — 반드시 3000번 포트(nginx 프록시)를 통해서만 API에 접근합니다.</blockquote>
+
+<hr />
+<h2 id="5-대시보드">5. 대시보드<a class="headerlink" href="#5-대시보드" title="Permanent link">&para;</a></h2>
+<p>앱 실행 시 첫 화면. 전체 현황을 한눈에 표시합니다. 60초(폴링 주기)마다 자동 갱신됩니다.</p>
+<h3 id="표시-항목">표시 항목<a class="headerlink" href="#표시-항목" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>장비 현황 카드</td>
+<td>전체 / UP / DOWN 장비 수 및 가용률</td>
+</tr>
+<tr>
+<td>알람 현황 카드</td>
+<td>활성 / Critical / Warning 알람 수</td>
+</tr>
+<tr>
+<td>장비 상태 그리드</td>
+<td>등록된 전체 장비 상태 카드 (Grid/Table 뷰 전환)</td>
+</tr>
+<tr>
+<td>장비별 CPU/메모리 패널</td>
+<td>유형·제조사 필터, 정렬, 임계치 설정(localStorage), 6시간 히스토리 차트</td>
+</tr>
+</tbody>
+</table>
+<h3 id="장비별-cpu메모리-패널-상세">장비별 CPU/메모리 패널 상세<a class="headerlink" href="#장비별-cpu메모리-패널-상세" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>장비 유형 필터</td>
+<td>서버·라우터·스위치·방화벽·AP 등</td>
+</tr>
+<tr>
+<td>제조사 필터</td>
+<td>유형 선택 후 해당 유형의 벤더로 2단계 필터</td>
+</tr>
+<tr>
+<td>정렬</td>
+<td>CPU+메모리 합산 / CPU 사용률 / 메모리 사용률 기준 오름차순·내림차순</td>
+</tr>
+<tr>
+<td>임계치 설정</td>
+<td>전체 공통 + 제조사별 독립 설정, 브라우저 localStorage에 영구 저장</td>
+</tr>
+<tr>
+<td>임계치 초과 표시</td>
+<td>설정값 초과 시 해당 장비 카드가 주황색으로 깜빡임</td>
+</tr>
+</tbody>
+</table>
+<blockquote>대시보드 패널의 임계치 설정은 <strong>알람 센터에 해당 장비의 벤더/모델(또는 장비 지정) 임계치가 없을 때만</strong> 적용됩니다. 우선순위는 11장을 참고하세요.</blockquote>
+
+<hr />
+<h2 id="6-장비-목록">6. 장비 목록<a class="headerlink" href="#6-장비-목록" title="Permanent link">&para;</a></h2>
+<h3 id="장비-등록">장비 등록<a class="headerlink" href="#장비-등록" title="Permanent link">&para;</a></h3>
+<p><strong>방법 1 — 단일 등록</strong></p>
+<ol>
+<li>우측 상단 <strong>[장비 등록]</strong> 버튼 클릭</li>
+<li>필수 항목 입력:</li>
+<li>호스트명, IP 주소</li>
+<li>장비 유형 (router/switch/server/firewall/ap/unknown)</li>
+<li>SNMP 버전 (v1/v2c/v3, 기본값 v2c), Community, 포트(기본 161)</li>
+<li>선택 항목: 위치, 벤더, 모델</li>
+<li><strong>[등록]</strong> 클릭</li>
+</ol>
+<p><strong>방법 2 — CSV 일괄 등록</strong></p>
+<ol>
+<li><strong>[샘플 CSV]</strong> 버튼으로 양식 다운로드</li>
+<li>CSV 작성 (헤더 행 필수, 필수 컬럼: <code>hostname, ip_address</code>):
+   <div class="highlight"><pre><span></span><code>hostname,ip_address,device_type,snmp_version,snmp_community,snmp_port,location,vendor,model
+SW-CORE-01,192.168.1.1,switch,v2c,public,161,IDC-A,Cisco,Catalyst 9300
+</code></pre></div></li>
+<li><strong>[+장비 등록(CSV)]</strong> 버튼으로 파일 선택</li>
+</ol>
+<h3 id="snmpv3-설정-snmp-버전을-v3으로-선택한-경우">SNMPv3 설정 (SNMP 버전을 v3으로 선택한 경우)<a class="headerlink" href="#snmpv3-설정-snmp-버전을-v3으로-선택한-경우" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>사용자 이름</td>
+<td>SNMPv3 Security Name</td>
+</tr>
+<tr>
+<td>인증 프로토콜</td>
+<td>MD5 / SHA</td>
+</tr>
+<tr>
+<td>인증 비밀번호</td>
+<td>authPassword</td>
+</tr>
+<tr>
+<td>암호화 프로토콜</td>
+<td>DES / AES128</td>
+</tr>
+<tr>
+<td>암호화 비밀번호</td>
+<td>privPassword</td>
+</tr>
+</tbody>
+</table>
+<blockquote>SNMPv3 자격증명은 데이터베이스에 <strong>암호화 없이</strong> 저장됩니다. 데이터베이스 접근 보안에 주의하십시오.</blockquote>
+
+<h3 id="장비-검색-및-필터">장비 검색 및 필터<a class="headerlink" href="#장비-검색-및-필터" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>필터</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>호스트명/IP 검색</td>
+<td>부분 일치 검색</td>
+</tr>
+<tr>
+<td>상태 필터</td>
+<td>up / down / warning / unknown</td>
+</tr>
+<tr>
+<td>유형 필터</td>
+<td>router / switch / server / firewall / ap / unknown</td>
+</tr>
+</tbody>
+</table>
+<h3 id="상태-배지">상태 배지<a class="headerlink" href="#상태-배지" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>배지</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UP</td>
+<td>SNMP 정상 응답</td>
+</tr>
+<tr>
+<td>DOWN</td>
+<td>SNMP 무응답 (Ping 포함)</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>임계치 초과 등 경고 상태</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td>아직 폴링되지 않음</td>
+</tr>
+</tbody>
+</table>
+<p>폴링 주기(60초)마다 자동 갱신됩니다.</p>
+<h3 id="장비-수정--삭제--알람-토글">장비 수정 / 삭제 / 알람 토글<a class="headerlink" href="#장비-수정--삭제--알람-토글" title="Permanent link">&para;</a></h3>
+<p>행 클릭 → 하단에 4탭 상세 패널 열림 → 탭 바의 연필 아이콘으로 수정/삭제, 알람 토글 스위치로 점검 중 알람 일시 차단 가능.</p>
+<hr />
+<h2 id="7-장비-상세-패널">7. 장비 상세 패널<a class="headerlink" href="#7-장비-상세-패널" title="Permanent link">&para;</a></h2>
+<p>장비 클릭 시 화면이 위/아래로 분할되며 하단에 4탭 패널이 열립니다 (경계선 드래그로 비율 조정 가능).</p>
+<h3 id="시스템-탭">시스템 탭<a class="headerlink" href="#시스템-탭" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>OID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sysDescr</td>
+<td>1.3.6.1.2.1.1.1.0</td>
+</tr>
+<tr>
+<td>sysName</td>
+<td>1.3.6.1.2.1.1.5.0</td>
+</tr>
+<tr>
+<td>가동 시간</td>
+<td>1.3.6.1.2.1.1.3.0 (sysUpTime)</td>
+</tr>
+<tr>
+<td>위치 (SNMP)</td>
+<td>1.3.6.1.2.1.1.6.0 (sysLocation)</td>
+</tr>
+<tr>
+<td>연락처</td>
+<td>1.3.6.1.2.1.1.4.0 (sysContact)</td>
+</tr>
+<tr>
+<td>비고(REMARK)</td>
+<td>최대 3000자, 자유 메모</td>
+</tr>
+</tbody>
+</table>
+<h3 id="인터페이스-탭">인터페이스 탭<a class="headerlink" href="#인터페이스-탭" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>컬럼</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>idx</td>
+<td>ifIndex</td>
+</tr>
+<tr>
+<td>이름</td>
+<td>ifName</td>
+</tr>
+<tr>
+<td>설명/별칭</td>
+<td>ifDescr / ifAlias</td>
+</tr>
+<tr>
+<td>운영</td>
+<td>ifOperStatus (1=Up, 2=Down)</td>
+</tr>
+<tr>
+<td>관리</td>
+<td>ifAdminStatus</td>
+</tr>
+<tr>
+<td>속도</td>
+<td>ifHighSpeed (Mbps 단위)</td>
+</tr>
+<tr>
+<td>수신/송신</td>
+<td>bps (초당 바이트 × 8)</td>
+</tr>
+<tr>
+<td>오류↑/↓ · 폐기↑/↓</td>
+<td>in/out errors, in/out discards</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>행을 클릭하면 해당 인터페이스의 대역폭 히스토리 그래프(1h/2h/6h/24h)가 표시됩니다.</p>
+</blockquote>
+<h3 id="자원-탭">자원 탭<a class="headerlink" href="#자원-탭" title="Permanent link">&para;</a></h3>
+<p>CPU/메모리 사용률 게이지 + 히스토리 차트. 서버 유형 장비는 디스크 사용량 카드가 추가로 표시됩니다. 메모리 차트 아래에는 <a href="#8-프로세스-모니터">프로세스 모니터</a>가 이어서 표시됩니다. 수집 전략의 상세 순서는 <a href="#14-폴링-엔진-구조">14장</a>을 참고하세요.</p>
+<h3 id="프로토콜-탭">프로토콜 탭<a class="headerlink" href="#프로토콜-탭" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ping RTT</td>
+<td>4회 ICMP 평균 응답 시간</td>
+</tr>
+<tr>
+<td>패킷 손실</td>
+<td>ICMP 손실률 (%)</td>
+</tr>
+<tr>
+<td>MIB-II 통계</td>
+<td>icmpInMsgs, icmpOutMsgs, tcpCurrEstab, udpIn, udpOut</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-프로세스-모니터">8. 프로세스 모니터<a class="headerlink" href="#8-프로세스-모니터" title="Permanent link">&para;</a></h2>
+<p>장비 상세 패널의 <strong>자원 탭</strong> 하단에 표시됩니다. HOST-RESOURCES-MIB의 <code>hrSWRunTable</code>/<code>hrSWRunPerfTable</code>을 실시간으로 수집하며 <strong>DB에는 저장하지 않고</strong> 화면을 열 때마다 즉시 SNMP로 조회합니다.</p>
+<h3 id="컬럼">컬럼<a class="headerlink" href="#컬럼" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>컬럼</th>
+<th>출처 OID (HOST-RESOURCES-MIB)</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PID</td>
+<td>hrSWRunIndex <code>.25.4.2.1.1</code></td>
+<td>프로세스 인덱스</td>
+</tr>
+<tr>
+<td>Command</td>
+<td>hrSWRunName <code>.25.4.2.1.2</code></td>
+<td>프로세스 이름</td>
+</tr>
+<tr>
+<td>CPU%</td>
+<td>hrSWRunPerfCPU <code>.25.5.1.1.1</code></td>
+<td>두 폴링 간 centiseconds 델타 ÷ 경과초</td>
+</tr>
+<tr>
+<td>Memory / PSS</td>
+<td>hrSWRunPerfMem <code>.25.5.1.1.2</code></td>
+<td>메모리 사용량 (KB → MB/GB 자동 변환). PSS는 표준 SNMP에서는 이 값과 동일하게 표시</td>
+</tr>
+<tr>
+<td>State</td>
+<td>hrSWRunStatus <code>.25.4.2.1.7</code></td>
+<td>running / runnable / notRunnable / invalid</td>
+</tr>
+</tbody>
+</table>
+<h3 id="사용법">사용법<a class="headerlink" href="#사용법" title="Permanent link">&para;</a></h3>
+<ul>
+<li>프로세스 테이블 <strong>행 클릭</strong> → 상단 CPU% 라인 차트에 추가/제거 (최대 6개 동시 추적)</li>
+<li><strong>15초</strong> 자동 갱신 (우측 상단 새로고침 버튼으로 즉시 갱신 가능)</li>
+<li>차트는 최근 20개 샘플(약 5분 이력) 보존</li>
+<li>메모리 도넛 차트: 총 메모리 대비 사용량 (GiB 단위)</li>
+</ul>
+<blockquote>hrSWRunTable을 제공하지 않는 장비(대부분의 L2 스위치 등)는 mock 데이터로 대체 표시됩니다. FortiGate, Linux 서버, 일부 라우터는 실제 지원합니다.</blockquote>
+
+<blockquote>hrSWRunPerfCPU는 누적 centiseconds 값이라 <strong>첫 폴링에는 이전 값이 없어 CPU%가 0%</strong>로 표시됩니다. 두 번째 폴링(15초 후)부터 정상 계산됩니다.</blockquote>
+
+<hr />
+<h2 id="9-장애-예측">9. 장애 예측<a class="headerlink" href="#9-장애-예측" title="Permanent link">&para;</a></h2>
+<p>선형회귀와 Z-score 이상 탐지로 CPU/메모리 추세를 분석하고 장애를 사전에 예측합니다. 좌측 리소스 트리(장비 유형별 그룹)에서 장비를 선택하면 중앙 워크스페이스에 아래 5개 탭이 로드됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>탭</th>
+<th>기능</th>
+<th>알고리즘</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overview</td>
+<td>예측 정확도(R²), 이상 탐지 건수, 예상 장애까지 시간 요약 + CPU 예측 차트</td>
+<td>선형회귀</td>
+</tr>
+<tr>
+<td>Forecast</td>
+<td>CPU/Memory 7일 실측 + 12시간 예측선(점선) + 정상 범위 영역 + Warn/Crit 기준선</td>
+<td>선형회귀 (최소제곱법)</td>
+</tr>
+<tr>
+<td>Anomaly</td>
+<td>최근 24시간 raw 데이터 이상값 탐지, 상승/하강/안정 추세 표시</td>
+<td>Z-score (|Z| &gt; 2.5)</td>
+</tr>
+<tr>
+<td>Alert Tuning</td>
+<td>CPU/Memory Warning·Critical 임계값 슬라이더 조정 및 저장</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>메트릭별 기울기(slope), R², 추세, 위험도 요약</td>
+<td>선형회귀</td>
+</tr>
+</tbody>
+</table>
+<h3 id="예측-원리">예측 원리<a class="headerlink" href="#예측-원리" title="Permanent link">&para;</a></h3>
+<p>최근 20개 시계열 포인트로 최소제곱법 기울기·절편을 계산해 12시간 외삽(extrapolation)합니다. R²가 1에 가까울수록(0.7 이상 권장) 예측 신뢰도가 높고, 정상 범위는 ±1.5σ로 표시됩니다.</p>
+<h3 id="이상-탐지-원리">이상 탐지 원리<a class="headerlink" href="#이상-탐지-원리" title="Permanent link">&para;</a></h3>
+<p>최근 24시간 평균(μ)·표준편차(σ)로 각 포인트의 Z값 = (값−μ)/σ를 계산, ±2.5 초과 시 이상값으로 판정합니다.</p>
+<p>우측 DataSource 패널에는 현재 수집 중인 모듈(CPU, Memory, Ping RTT, Interfaces) 활성 상태와 Root Cause 요약, Primary Signals가 표시됩니다.</p>
+<hr />
+<h2 id="10-토폴로지-맵">10. 토폴로지 맵<a class="headerlink" href="#10-토폴로지-맵" title="Permanent link">&para;</a></h2>
+<p>SNMP LLDP(IEEE 802.1AB) / CDP(Cisco Discovery Protocol) MIB로 장비 간 인접 정보를 자동 수집해 시각화합니다.</p>
+<h3 id="자동-탐색">자동 탐색<a class="headerlink" href="#자동-탐색" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>[탐색 시작]</strong> 버튼 클릭</li>
+<li>CIDR 범위 입력 (예: <code>192.168.0.0/24</code>)</li>
+<li>SNMP Community 입력 (기본: <code>public</code>)</li>
+<li><strong>[탐색]</strong> 클릭 → 백그라운드 Discovery 작업 시작 (CIDR 내 전체 호스트 병렬 SNMP 폴링)</li>
+<li>완료 후 네트워크 그래프 자동 표시 (Fruchterman-Reingold 알고리즘 자동 배치)</li>
+</ol>
+<h3 id="6가지-맵-스타일-사이드바-토폴로지-맵-하위-메뉴">6가지 맵 스타일 (사이드바 "토폴로지 맵" 하위 메뉴)<a class="headerlink" href="#6가지-맵-스타일-사이드바-토폴로지-맵-하위-메뉴" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>번호</th>
+<th>스타일명</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>OrionMaps Style</td>
+<td>SolarWinds Orion 스타일, 원형 노드 + 상태 인디케이터</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PRTG Style</td>
+<td>카드형 노드, 센서 바 게이지</td>
+</tr>
+<tr>
+<td>3</td>
+<td>NetBrain Style</td>
+<td>장비 유형별 아이콘, 링 상태 인디케이터</td>
+</tr>
+<tr>
+<td>4</td>
+<td>What'sUpGold Style</td>
+<td>아이콘+이름+상태 배지 컴팩트 카드</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Grafana with Canvas</td>
+<td>배경 캔버스 + 오버레이 노드</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SolarWindsNPM Style</td>
+<td>계층적 레이아웃 자동 배치</td>
+</tr>
+</tbody>
+</table>
+<h3 id="그래프-조작">그래프 조작<a class="headerlink" href="#그래프-조작" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>동작</th>
+<th>방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이동</td>
+<td>드래그</td>
+</tr>
+<tr>
+<td>확대/축소</td>
+<td>마우스 휠</td>
+</tr>
+<tr>
+<td>노드 이동</td>
+<td>노드 드래그</td>
+</tr>
+<tr>
+<td>노드 정보</td>
+<td>노드 클릭 → 우측 패널에 IP·sys_name·유형·상태·포트/링크 표시</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-알람-센터">11. 알람 센터<a class="headerlink" href="#11-알람-센터" title="Permanent link">&para;</a></h2>
+<h3 id="알람-상태--심각도">알람 상태 / 심각도<a class="headerlink" href="#알람-상태--심각도" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>상태</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACTIVE</td>
+<td>임계치 초과 지속 중 또는 장비 DOWN</td>
+</tr>
+<tr>
+<td>ACKNOWLEDGED</td>
+<td>담당자 인지 확인(여전히 활성) — 메트릭 정상화 시 자동 RESOLVED 전환</td>
+</tr>
+<tr>
+<td>RESOLVED</td>
+<td>메트릭 정상 복귀 또는 장비 복구</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>심각도</th>
+<th>조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRITICAL</td>
+<td>critical_value 이상, 또는 장비 DOWN(SNMP 무응답)</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>warning_value 이상 ~ critical_value 미만</td>
+</tr>
+</tbody>
+</table>
+<h3 id="임계치-적용-우선순위">임계치 적용 우선순위<a class="headerlink" href="#임계치-적용-우선순위" title="Permanent link">&para;</a></h3>
+<p>같은 메트릭에 여러 임계치가 정의될 수 있어, 다음 순서로 <strong>가장 구체적인 것 하나만</strong> 적용됩니다.</p>
+<ol>
+<li><strong>장비별 지정</strong> 임계치 (<code>device_id</code> 지정)</li>
+<li><strong>벤더+모델</strong> 임계치 (예: HP · DL580Gen9)</li>
+<li><strong>벤더 전용</strong> 임계치 (모델 미지정, 예: Fortigate 전체)</li>
+<li><strong>서버 유형 하드코딩 기본값</strong> (<code>device_type=server</code>이고 위 1~3, 아래 5에 해당 없을 때만) — CPU 50% / 메모리 80% WARNING</li>
+<li><strong>전역(global) 임계치</strong> — 벤더/장비 미지정</li>
+</ol>
+<p>임계치 설정은 알람 센터 → <strong>임계치 설정</strong> 탭에서 관리합니다. 특정 장비를 지정하거나 비워두면 전체 장비(또는 전체 벤더)에 적용됩니다.</p>
+<h3 id="알람-확인--해결">알람 확인 / 해결<a class="headerlink" href="#알람-확인--해결" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>작업</th>
+<th>방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>확인 (Acknowledge)</td>
+<td>알람 행 선택 → <strong>[확인]</strong> 버튼, 담당자 이름 입력</td>
+</tr>
+<tr>
+<td>해결 (Resolve)</td>
+<td>알람 행 선택 → <strong>[해결]</strong> 버튼</td>
+</tr>
+</tbody>
+</table>
+<h3 id="필터">필터<a class="headerlink" href="#필터" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>필터</th>
+<th>옵션</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상태</td>
+<td>active / acknowledged / resolved</td>
+</tr>
+<tr>
+<td>심각도</td>
+<td>critical / warning</td>
+</tr>
+<tr>
+<td>장비</td>
+<td>특정 장비 선택</td>
+</tr>
+</tbody>
+</table>
+<h3 id="이메일-알림-설정">이메일 알림 설정<a class="headerlink" href="#이메일-알림-설정" title="Permanent link">&para;</a></h3>
+<p>알람 센터 → <strong>알림 설정</strong> 탭에서 <strong>수신자·발송 여부·반복 간격</strong>을 설정합니다.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>알림 활성화</td>
+<td>전체 이메일 발송 온/오프</td>
+</tr>
+<tr>
+<td>수신자 목록</td>
+<td>세미콜론(;)으로 구분, 다중 입력 가능</td>
+</tr>
+<tr>
+<td>DOWN / CRITICAL / WARNING 알림</td>
+<td>각각 독립적으로 켜고 끌 수 있음 (기본: DOWN·CRITICAL 켜짐, WARNING 꺼짐)</td>
+</tr>
+<tr>
+<td>반복 간격</td>
+<td>DOWN/CRITICAL/WARNING마다 각각 분 단위로 설정 (기본 5/5/10분)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>이 화면에서는 <strong>SMTP 서버 자체(호스트·포트·계정·비밀번호·발신자)는 설정할 수 없습니다.</strong> SMTP는 <code>SMTP_HOST</code>/<code>SMTP_PORT</code>/<code>SMTP_USER</code>/<code>SMTP_PASSWORD</code>/<code>SMTP_FROM</code> 환경변수(<code>docker-compose.yml</code> 또는 <code>.env</code>)로만 설정하며, 바꾸면 백엔드 컨테이너 재시작이 필요합니다.</blockquote>
+
+<p><strong>발송 정책 — 장비 DOWN/UP</strong></p>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>앱 시작 시 이미 DOWN</td>
+<td>메일 미발송</td>
+</tr>
+<tr>
+<td>UP → DOWN 전환</td>
+<td>즉시 1회 발송</td>
+</tr>
+<tr>
+<td>DOWN 지속</td>
+<td>설정한 간격(기본 5분)마다 반복 발송</td>
+</tr>
+<tr>
+<td>DOWN → UP 전환</td>
+<td>복구 메일 1회 발송</td>
+</tr>
+<tr>
+<td>앱 시작 시 이미 UP</td>
+<td>메일 미발송</td>
+</tr>
+</tbody>
+</table>
+<p><strong>발송 정책 — 임계치 CRITICAL/WARNING</strong></p>
+<p>DOWN/UP과 별개로, CPU·메모리 등 임계치 초과로 알람이 발생하면 해당 심각도의 알림이 켜져 있을 때 설정한 간격(기본 CRITICAL 5분·WARNING 10분)마다 반복 발송됩니다. 메트릭이 정상 복귀해 알람이 RESOLVED되면 반복 발송이 멈춥니다.</p>
+<blockquote><strong>[테스트 발송]</strong> 버튼으로 SMTP 연결을 검증할 수 있습니다. 시각은 모두 KST(UTC+9), <code>YYYY/MM/DD HH:MM:SS</code> 형식입니다.</blockquote>
+
+<hr />
+<h2 id="12-mib-browser">12. MIB Browser<a class="headerlink" href="#12-mib-browser" title="Permanent link">&para;</a></h2>
+<p>등록된 장비를 대상으로 SNMP Walk/GET을 수동 실행하고 OID 값을 조회합니다.</p>
+<h3 id="기본-사용법">기본 사용법<a class="headerlink" href="#기본-사용법" title="Permanent link">&para;</a></h3>
+<ol>
+<li>대상 장비 선택 (IP 직접 입력 또는 등록 장비 목록에서 선택)</li>
+<li>OID 입력 (예: <code>1.3.6.1.2.1.1</code>)</li>
+<li>SNMP Walk 또는 GET 선택 후 조회</li>
+<li>결과 테이블에서 OID, 값, 타입 확인</li>
+</ol>
+<h3 id="mib-파일-로드">MIB 파일 로드<a class="headerlink" href="#mib-파일-로드" title="Permanent link">&para;</a></h3>
+<p><strong>[Load MIB]</strong> 버튼으로 <code>.mib</code>/<code>.txt</code>/<code>.my</code> 파일을 로드하면 좌측에 OID 트리가 표시됩니다. 화살표(▶/▼)로 하위 노드 펼침/접기, 기본 2단계까지 자동 펼침, 검색창으로 이름 필터링 가능.</p>
+<h3 id="snmp-진단-snmp-diag">SNMP 진단 (snmp-diag)<a class="headerlink" href="#snmp-진단-snmp-diag" title="Permanent link">&para;</a></h3>
+<p>장비의 SNMP 응답 여부와 지원 OID를 한 번에 확인합니다. 벤더별 전용 OID(FortiGate, Juniper, Handreamnet, NetScreen 등)도 자동 테스트합니다.</p>
+<blockquote>SNMP 진단은 대상 장비에 다수의 SNMP 요청을 발송합니다. 폴링 중 실행 시 장비 부하에 주의하십시오.</blockquote>
+
+<hr />
+<h2 id="13-snmp-설정-가이드-장비-측">13. SNMP 설정 가이드 (장비 측)<a class="headerlink" href="#13-snmp-설정-가이드-장비-측" title="Permanent link">&para;</a></h2>
+<h3 id="cisco-ios--ios-xe">Cisco IOS / IOS-XE<a class="headerlink" href="#cisco-ios--ios-xe" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>snmp-server community public RO
+snmp-server location HQ-Server-Room
+snmp-server contact admin@company.com
+</code></pre></div>
+<h3 id="cisco-nx-os">Cisco NX-OS<a class="headerlink" href="#cisco-nx-os" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>snmp-server community public group network-operator
+feature snmp
+</code></pre></div>
+<h3 id="fortigate">FortiGate<a class="headerlink" href="#fortigate" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>config system snmp community
+  edit 1
+    set name public
+    config hosts
+      edit 1
+        set ip &lt;NMS-IP&gt;/32
+      end
+    end
+  next
+end
+config system snmp sysinfo
+  set status enable
+end
+</code></pre></div>
+<h3 id="juniper-junos-srxexmx-등">Juniper Junos (SRX/EX/MX 등)<a class="headerlink" href="#juniper-junos-srxexmx-등" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>set snmp community public authorization read-only
+set snmp location &quot;HQ-Server-Room&quot;
+set snmp contact &quot;admin@company.com&quot;
+</code></pre></div>
+<h3 id="juniper-ssg--screenos-netscreen">Juniper SSG / ScreenOS (NetScreen)<a class="headerlink" href="#juniper-ssg--screenos-netscreen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>set snmp community public Read-Only
+set snmp host &lt;NMS-IP&gt;
+set snmp port 161
+</code></pre></div>
+<h3 id="tp-link-tl-sg2xxx--t2600g">TP-Link (TL-SG2xxx / T2600G)<a class="headerlink" href="#tp-link-tl-sg2xxx--t2600g" title="Permanent link">&para;</a></h3>
+<p>Web UI: <code>Management &gt; SNMP &gt; SNMP Config</code> → Community Name: <code>public</code>, Access: Read-Only</p>
+<h3 id="handrim-한드림넷-sg2024gpoe">Handrim (한드림넷) SG2024GPOE<a class="headerlink" href="#handrim-한드림넷-sg2024gpoe" title="Permanent link">&para;</a></h3>
+<p>Web UI: <code>시스템 &gt; SNMP 설정</code> → Community: <code>public</code>, 권한: 읽기전용, Trap 수신 IP: NMS 서버 IP</p>
+<hr />
+<h2 id="14-폴링-엔진-구조">14. 폴링 엔진 구조<a class="headerlink" href="#14-폴링-엔진-구조" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>PollerEngine (60초 주기, POLL_INTERVAL)
+  └── 매 사이클 시작 시 metrics_raw 파티션 존재 여부 확인 (자동 생성)
+  └── 장비별 SNMPWorker (병렬, 최대 20 동시 — POLLER_WORKERS)
+        ├── Ping (ICMP 4회)
+        ├── _collect_system    → sysDescr, sysName, sysUptime ...
+        ├── _collect_cpu       → 아래 CPU 전략 순서 참고
+        ├── _collect_memory    → 아래 메모리 전략 순서 참고
+        ├── _collect_interfaces → IF-MIB + IF-MIB HC (64bit 카운터)
+        ├── _collect_proto_stats → ICMP/TCP/UDP 카운터
+        └── _collect_disks     → HR-MIB hrStorageTable (고정 디스크)
+
+  DB 저장 순서:
+    1. sync_interfaces()        → device_interfaces 테이블 upsert
+    2. _persist()                → metrics_raw 테이블 insert
+    3. _update_device_status()   → devices.status 갱신
+    4. _upsert_sys_state()       → device_sys_state upsert
+    5. commit()
+</code></pre></div>
+<h3 id="cpu-수집-전략-순서">CPU 수집 전략 순서<a class="headerlink" href="#cpu-수집-전략-순서" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>벤더 자동 감지 우선 시도</strong> — sysDescr/sysObjectID로 FortiGate·Juniper(Junos)·Juniper SSG(ScreenOS)를 식별하면 해당 벤더 전용 OID(<code>fgSysCpuUsage</code>, <code>jnxOperatingCPU</code>, <code>nsResCpuLast1Min</code>)를 가장 먼저 시도. 여기서 값을 얻으면 즉시 사용하고 아래 단계는 건너뜀</li>
+<li>HR-MIB <code>hrProcessorLoad</code> (RFC 2790, 서버/Linux)
+2~3. UCD-SNMP <code>ssCpuIdle</code> / <code>ssCpuUser+ssCpuSystem</code> (Linux/OpenWRT/pfSense)</li>
+<li>Cisco PROCESS-MIB / OLD-CISCO-CPU-MIB (여러 세대 OID 순차 시도)
+5~9. TP-Link, H3C, Huawei, Zyxel, Mikrotik 전용 OID
+10~13. Juniper, FortiGate, Handreamnet, NetScreen 전용 OID (0번에서 감지되지 않았거나 실패한 경우의 폴백)</li>
+</ol>
+<h3 id="메모리-수집-전략-순서">메모리 수집 전략 순서<a class="headerlink" href="#메모리-수집-전략-순서" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>벤더 자동 감지 우선 시도</strong> — CPU와 동일한 방식으로 <code>fgSysMemUsage</code>, <code>jnxOperatingHeap</code>, <code>nsResMemAlc/Left</code>를 우선 시도</li>
+<li><strong>UCD-SNMP <code>memAvailReal</code> + <code>memBuffer</code> + <code>memCached</code></strong> (Linux) — 캐시/버퍼를 회수 가능한 메모리로 명시적으로 더해 계산 (<code>free -m</code> 방식과 동일). Net-SNMP 구버전에서 <code>memAvailReal</code>이 순수 free만 반환하는 경우까지 커버하기 위함</li>
+<li>HR-MIB <code>hrStorageRam</code> — Linux에서는 캐시를 반영하지 않아 실제보다 부풀려질 수 있어 UCD-SNMP보다 후순위</li>
+<li>Cisco MEMORY-POOL-MIB / ENHANCED-MEMPOOL-MIB
+4~5. TP-Link, H3C 전용 OID
+6~8. FortiGate, Handreamnet, NetScreen 전용 OID (0번 폴백)</li>
+</ol>
+<blockquote>지원하지 않는 장비는 CPU/메모리가 "수집 불가"로 표시됩니다. 어떤 MIB이 실제로 응답하는지는 MIB Browser의 SNMP 진단 또는 백엔드 로그(<code>grep -E "CPU\[|Mem\["</code>)로 확인할 수 있습니다.</blockquote>
+
+<h3 id="지원-벤더-및-cpu메모리-oid-참고표">지원 벤더 및 CPU/메모리 OID 참고표<a class="headerlink" href="#지원-벤더-및-cpu메모리-oid-참고표" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>벤더 / OS</th>
+<th>Enterprise OID</th>
+<th>수집 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cisco IOS / IOS-XE</td>
+<td>9</td>
+<td>ciscoMemoryPoolTable, cpmCPUTotalTable</td>
+</tr>
+<tr>
+<td>Cisco NX-OS</td>
+<td>9</td>
+<td>ciscoEntityFruControlMIB</td>
+</tr>
+<tr>
+<td>Juniper JunOS</td>
+<td>2636</td>
+<td>jnxOperatingTable</td>
+</tr>
+<tr>
+<td>HP/Aruba ProCurve</td>
+<td>11</td>
+<td>hpicfChassis MIB</td>
+</tr>
+<tr>
+<td>Huawei VRP</td>
+<td>2011</td>
+<td>hwEntityMIB</td>
+</tr>
+<tr>
+<td>H3C / HPE Comware</td>
+<td>25506</td>
+<td>hh3cEntityExtMIB</td>
+</tr>
+<tr>
+<td>TP-Link Enterprise</td>
+<td>11863</td>
+<td>tpSysCpu / tpSysMem table</td>
+</tr>
+<tr>
+<td>Mikrotik / RouterOS</td>
+<td>14988</td>
+<td>mtxrProcessorLoad (scalar GET)</td>
+</tr>
+<tr>
+<td>FortiGate</td>
+<td>12356</td>
+<td>fgSysCpuUsage / fgSysMemUsage (scalar GET)</td>
+</tr>
+<tr>
+<td>Handreamnet SG</td>
+<td>27837</td>
+<td>hnSysCpuUsage / hnSysMemTotal (scalar GET)</td>
+</tr>
+<tr>
+<td>Juniper NetScreen (ScreenOS)</td>
+<td>3224</td>
+<td>nsResCpuLast1Min / nsResMemAlc (scalar GET)</td>
+</tr>
+<tr>
+<td>Zyxel</td>
+<td>890</td>
+<td>zyxelCpuUsage table</td>
+</tr>
+<tr>
+<td>표준 HOST-RESOURCES-MIB</td>
+<td>—</td>
+<td>hrProcessorLoad, hrStorageTable, hrSWRunTable</td>
+</tr>
+<tr>
+<td>UCD-SNMP / Net-SNMP (Linux)</td>
+<td>2021</td>
+<td>ssCpuUser, ssCpuIdle, memTotalReal/memAvailReal/memBuffer/memCached</td>
+</tr>
+</tbody>
+</table>
+<h3 id="수집-메트릭-id-참고표">수집 메트릭 ID 참고표<a class="headerlink" href="#수집-메트릭-id-참고표" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>메트릭 ID</th>
+<th>설명</th>
+<th>단위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpu_util</td>
+<td>CPU 사용률</td>
+<td>%</td>
+</tr>
+<tr>
+<td>mem_util</td>
+<td>메모리 사용률</td>
+<td>%</td>
+</tr>
+<tr>
+<td>ping_rtt</td>
+<td>Ping 평균 응답시간</td>
+<td>ms</td>
+</tr>
+<tr>
+<td>ping_loss</td>
+<td>Ping 패킷 손실률</td>
+<td>%</td>
+</tr>
+<tr>
+<td>if_in_octets / if_out_octets</td>
+<td>인터페이스 수신/송신 트래픽</td>
+<td>bps</td>
+</tr>
+<tr>
+<td>if_in_errors / if_out_errors</td>
+<td>수신/송신 에러 카운트</td>
+<td>count</td>
+</tr>
+<tr>
+<td>if_oper_status</td>
+<td>인터페이스 운영 상태</td>
+<td>1=Up, 2=Down</td>
+</tr>
+</tbody>
+</table>
+<blockquote>인터페이스 메트릭(if_*)은 장비별 ifIndex 단위로 수집됩니다. 임계치 설정 시 특정 장비를 지정하지 않으면 모든 장비의 해당 메트릭에 적용됩니다.</blockquote>
+
+<h3 id="snmp-폴링-파라미터-환경변수-docker-composeyml">SNMP 폴링 파라미터 (환경변수, docker-compose.yml)<a class="headerlink" href="#snmp-폴링-파라미터-환경변수-docker-composeyml" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POLL_INTERVAL</code></td>
+<td>60</td>
+<td>폴링 주기 (초)</td>
+</tr>
+<tr>
+<td><code>POLLER_WORKERS</code></td>
+<td>20</td>
+<td>최대 동시 폴링 장비 수</td>
+</tr>
+<tr>
+<td><code>SNMP_TIMEOUT</code></td>
+<td>5</td>
+<td>SNMP 타임아웃 (초)</td>
+</tr>
+<tr>
+<td><code>SNMP_RETRIES</code></td>
+<td>2</td>
+<td>SNMP 재시도 횟수</td>
+</tr>
+</tbody>
+</table>
+<h3 id="메트릭-보존-정책">메트릭 보존 정책<a class="headerlink" href="#메트릭-보존-정책" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>테이블</th>
+<th>집계 단위</th>
+<th>보존 기간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>metrics_raw</td>
+<td>1분 원본 (주 단위 파티션)</td>
+<td>7일</td>
+</tr>
+<tr>
+<td>metrics_hourly</td>
+<td>1시간 평균</td>
+<td>30일</td>
+</tr>
+<tr>
+<td>metrics_daily</td>
+<td>1일 평균</td>
+<td>365일</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-데이터베이스-스키마-요약">15. 데이터베이스 스키마 요약<a class="headerlink" href="#15-데이터베이스-스키마-요약" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>테이블</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>devices</code></td>
+<td>장비 기본 정보</td>
+</tr>
+<tr>
+<td><code>device_interfaces</code></td>
+<td>인터페이스 정보 (SNMP 자동 갱신)</td>
+</tr>
+<tr>
+<td><code>device_sys_state</code></td>
+<td>장비별 최신 시스템 상태 (upsert)</td>
+</tr>
+<tr>
+<td><code>metrics_raw</code></td>
+<td>1분 원본 메트릭 (주 단위 파티션 테이블)</td>
+</tr>
+<tr>
+<td><code>metrics_hourly</code></td>
+<td>1시간 집계 메트릭</td>
+</tr>
+<tr>
+<td><code>metrics_daily</code></td>
+<td>1일 집계 메트릭</td>
+</tr>
+<tr>
+<td><code>alert_thresholds</code></td>
+<td>알람 임계값 정의 (장비/벤더+모델/벤더/전역)</td>
+</tr>
+<tr>
+<td><code>alert_events</code></td>
+<td>알람 이벤트 이력</td>
+</tr>
+<tr>
+<td><code>topology_snapshots</code> / <code>_nodes</code> / <code>_edges</code></td>
+<td>토폴로지 탐색 스냅샷 및 노드/링크 (LLDP 기반)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="직접-db-접속-진단용">직접 DB 접속 (진단용)<a class="headerlink" href="#직접-db-접속-진단용" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">PGPASSWORD</span><span class="o">=</span>zenith<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>zenith<span class="w"> </span>-d<span class="w"> </span>zenithnms
+</code></pre></div>
+<p>주요 진단 쿼리:
+<div class="highlight"><pre><span></span><code><span class="c1">-- 장비별 인터페이스 수</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">hostname</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">di</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">iface_count</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">d</span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">device_interfaces</span><span class="w"> </span><span class="n">di</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">di</span><span class="p">.</span><span class="n">device_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">id</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">hostname</span><span class="p">;</span>
+
+<span class="c1">-- 최근 1시간 메트릭 수</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">metric_type</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">metrics_raw</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">time</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">NOW</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;1 hour&#39;</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">metric_type</span><span class="p">;</span>
+
+<span class="c1">-- 활성 알람</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">alert_events</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;active&#39;</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">triggered_at</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+
+<span class="c1">-- 벤더/모델별 임계치 확인</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">device_id</span><span class="p">,</span><span class="w"> </span><span class="n">metric_type</span><span class="p">,</span><span class="w"> </span><span class="n">vendor</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">warning_value</span><span class="p">,</span><span class="w"> </span><span class="n">critical_value</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">alert_thresholds</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</code></pre></div></p>
+<hr />
+<h2 id="16-장애-진단">16. 장애 진단<a class="headerlink" href="#16-장애-진단" title="Permanent link">&para;</a></h2>
+<h3 id="인터페이스-탭에-데이터-없음">인터페이스 탭에 데이터 없음<a class="headerlink" href="#인터페이스-탭에-데이터-없음" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>backend<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;IF-MIB|sync_interfaces|bulkwalk&quot;</span>
+</code></pre></div>
+SNMP 진단(MIB Browser → snmp-diag)에서 빈 결과면 장비 SNMP 설정 또는 방화벽 문제.</p>
+<h3 id="cpu메모리-표시-안-됨-또는-값이-이상함">CPU/메모리 표시 안 됨 또는 값이 이상함<a class="headerlink" href="#cpu메모리-표시-안-됨-또는-값이-이상함" title="Permanent link">&para;</a></h3>
+<ol>
+<li>로그에서 실제로 어떤 전략이 잡혔는지 확인:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>backend<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;CPU\[|Mem\[&quot;</span>
+</code></pre></div>
+   <code>Mem[HR-MIB]</code>처럼 특정 전략 태그가 찍힙니다. 벤더 전용 전략이면 <code>Mem[FortiGate/vendor-detected]</code>처럼 <code>/vendor-detected</code> 접미사가 붙습니다.</li>
+<li>앱 자체 GUI(있는 경우) 값과 비교해서 다르면, 해당 장비가 어떤 MIB을 실제로 지원하는지 SNMP 진단으로 재확인</li>
+<li>필요 시 원본 OID 값을 직접 조회해 어떤 계산식이 실제 값과 맞는지 검증 후 <code>backend/app/poller/snmp_worker.py</code>에 전략 추가/우선순위 조정</li>
+</ol>
+<h3 id="장비-status--down인데-실제로는-살아있음">장비 status = down인데 실제로는 살아있음<a class="headerlink" href="#장비-status--down인데-실제로는-살아있음" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>ping<span class="w"> </span>&lt;장비IP&gt;
+snmpwalk<span class="w"> </span>-v2c<span class="w"> </span>-c<span class="w"> </span>public<span class="w"> </span>&lt;장비IP&gt;<span class="w"> </span><span class="m">1</span>.3.6.1.2.1.1.1.0
+</code></pre></div>
+SNMP Community/포트 설정을 확인하십시오.</p>
+<h3 id="폴링이-전혀-안-됨">폴링이 전혀 안 됨<a class="headerlink" href="#폴링이-전혀-안-됨" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>backend<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Poller&quot;</span>
+</code></pre></div>
+<code>Poller engine started</code> 메시지가 없으면 pysnmp 임포트 오류입니다.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>backend<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;ERROR|WARNING&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+</code></pre></div>
+<hr />
+<h2 id="17-모바일-접속-wsl2">17. 모바일 접속 (WSL2)<a class="headerlink" href="#17-모바일-접속-wsl2" title="Permanent link">&para;</a></h2>
+<h3 id="1단계--wsl-ip-확인">1단계 — WSL IP 확인<a class="headerlink" href="#1단계--wsl-ip-확인" title="Permanent link">&para;</a></h3>
+<p>PowerShell:
+<div class="highlight"><pre><span></span><code><span class="n">wsl</span> <span class="n">hostname</span> <span class="n">-I</span>
+</code></pre></div>
+→ <code>172.x.x.x</code> 확인</p>
+<h3 id="2단계--포트포워딩-관리자-권한-powershell">2단계 — 포트포워딩 (관리자 권한 PowerShell)<a class="headerlink" href="#2단계--포트포워딩-관리자-권한-powershell" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">netsh</span> <span class="n">interface</span> <span class="n">portproxy</span> <span class="n">add</span> <span class="n">v4tov4</span> <span class="n">listenport</span><span class="p">=</span><span class="n">3000</span> <span class="n">listenaddress</span><span class="p">=</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">connectport</span><span class="p">=</span><span class="n">3000</span> <span class="n">connectaddress</span><span class="p">=</span><span class="n">172</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">x</span>
+</code></pre></div>
+<h3 id="3단계--방화벽-허용">3단계 — 방화벽 허용<a class="headerlink" href="#3단계--방화벽-허용" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">New-NetFirewallRule</span> <span class="n">-DisplayName</span> <span class="s2">&quot;ZenithNMS&quot;</span> <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-LocalPort</span> <span class="n">3000</span> <span class="n">-Action</span> <span class="n">Allow</span>
+</code></pre></div>
+<h3 id="4단계--모바일-접속">4단계 — 모바일 접속<a class="headerlink" href="#4단계--모바일-접속" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>http://&lt;PC의-IPv4-주소&gt;:3000
+</code></pre></div>
+<blockquote>
+<p>WSL2 재시작 시 내부 IP가 변경되므로 포트포워딩 재설정 필요. 참고로 <code>~/projects/tunnel.sh</code>로 외부 접속용 터널을 띄울 수 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="18-변경-이력">18. 변경 이력<a class="headerlink" href="#18-변경-이력" title="Permanent link">&para;</a></h2>
+<p>프로그램 개발 및 주요 변경 사항을 날짜순(최신 순)으로 정리한 목록입니다. Git 커밋 이력과 최근 작업 내용을 기반으로 하며, 예전에는 "관리자 매뉴얼"(현재는 이 문서로 통합됨) 페이지에서 관리했습니다.</p>
+<blockquote>날짜는 커밋 시각 또는 파일 최종 수정 시각 기준입니다. 프로그램이 변경되면 이 표에도 새 행을 맨 위에 추가해야 최신 상태가 유지됩니다.</blockquote>
+
+<table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-09-01</td>
+<td>버그수정</td>
+<td>로그인 화면 뒤의 API가 실제로는 인증 없이 호출 가능하던 보안 취약점 수정 — <code>/api/auth/me</code>를 제외한 장비/메트릭/알람/토폴로지/MIB/지오/프로세스/사용자매뉴얼 API 전부에 인증이 걸려 있지 않아 토큰 없이도 장비 등록·삭제, 알람 설정 변경 등이 가능했음. 전체 라우터에 인증을 강제하도록 수정.</td>
+</tr>
+<tr>
+<td>2026-08-31</td>
+<td>버그수정</td>
+<td>사용자 매뉴얼(<code>docs/manual.md</code>) 화면의 인라인 코드(백틱 하나)가 전부 블록 스타일로 깨져 렌더링되던 문제 수정 — react-markdown v9.1.0부터 <code>code</code> 컴포넌트에 <code>inline</code> prop을 넘겨주지 않게 되어 항상 undefined였던 것이 원인. <code>pre</code>로 감싸졌는지 여부(구조)로 inline/block을 구분하도록 변경(PR #1 Claude Code Review에서 지적).</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>버그수정</td>
+<td>"11. 알람 센터"의 이메일 알림 설정 내용 수정 — 실제로는 SMTP 서버(호스트/포트/계정 등)를 UI에서 설정할 수 없고 환경변수로만 설정 가능하며, DOWN/UP 전환과 별개로 CRITICAL/WARNING 임계치 초과 시에도 각각 독립된 반복 간격으로 이메일이 발송된다는 사실이 누락돼 있었음(<code>docs/api-reference.md</code> 재검토 중 코드 대조로 발견).</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>기타</td>
+<td>개발 문서 정리: <code>prompt_change_log.txt</code>(요청-처리 로그, 재개 하루 만에) 폐기하고 <code>CHANGELOG.md</code>의 "진행 중 변경사항" 섹션으로 일원화. <code>CHANGELOG.md</code>의 방치돼 있던 "미해결 / 향후 계획" 표에 이미 구현된 항목(Grafana with Canvas, LLDP 기반 AutoMap)이 TODO로 남아있던 오류도 함께 정리. 앞으로 프로그램 수정 요청마다 <code>CHANGELOG.md</code>(개발자용 요청/처리 로그)와 이 문서의 변경 이력(사용자용 기능 변경사항)을 함께 갱신.</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>기타</td>
+<td>2026-05-29 이후 중단됐던 <code>prompt_change_log.txt</code>(프롬프트 요청-처리 로그) 기록을 재개. 이 문서의 변경 이력(기능 관점)과 별개로, 앞으로 프로그램 수정 요청마다 두 파일을 함께 갱신.</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>개선</td>
+<td>사용자 매뉴얼 화면의 줄 간격/여백을 "장비 목록" 페이지 수준으로 촘촘하게 조정 — 제목 여백(mt/mb), 문단·목록 줄간격(leading-relaxed→leading-snug), 표 셀 패딩(px-3 py-2→px-2 py-1)과 글자 크기(text-xs→11px)를 전체적으로 축소.</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>기타</td>
+<td>문서 하단의 "예전의 '관리자 매뉴얼' 페이지는 이 문서로 통합되어 더 이상 존재하지 않습니다" 문구 삭제.</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>기능개선</td>
+<td>"관리자 매뉴얼"(<code>AdminManual.tsx</code>)을 이 문서(사용자 매뉴얼, <code>docs/manual.md</code>)로 통합. 문서 하나만 유지하도록 정리 — 두 문서에 겹치던 대시보드/장비관리/프로세스모니터/장애예측/토폴로지/알람센터/MIB/SNMP 설명을 이 문서 기준으로 일원화하고, 관리자 매뉴얼에만 있던 SNMPv3 설정, 벤더별 OID 참고표, 수집 메트릭 ID 참고표, 변경 이력(이 섹션)을 이관. 사용자 매뉴얼 메뉴 클릭 시 좌측에 목차를 서브 메뉴 형태로 표시하고, 각 항목 클릭 시 해당 섹션으로 이동하도록 변경.</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>기능개선</td>
+<td>사이드바 "사용자 매뉴얼" 메뉴를 이미 그 페이지에 있는 상태에서 다시 클릭하면 문서 최상단으로 스크롤되도록 개선 — 목차 앵커로 내려간 뒤 메뉴를 재클릭했을 때 그대로 멈춰 있던 문제. React Router는 같은 경로로 재이동해도 <code>location.key</code>를 새로 발급하는 점을 이용해 스크롤 컨테이너를 top으로 리셋.</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>버그수정</td>
+<td>사용자 매뉴얼 목차 링크 클릭 시 섹션 이동 대신 새 창이 뜨고 맨 위만 보이던 문제 재수정 — 링크 렌더러가 <code>target="_blank"</code>를 모든 링크(내부 앵커 포함)에 무조건 적용하고 있어 매번 새 창으로 열렸고, 그 새 창은 manual.md를 비동기로 다시 불러오는 중이라 앵커 스크롤 시점에 대상 요소가 아직 없었음. <code>http(s)</code> 외부 링크에만 새 탭을 열도록 수정.</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>버그수정</td>
+<td>사용자 매뉴얼 목차의 1~17번 앵커 링크 클릭 시 해당 섹션으로 이동하지 않던 문제 수정 — react-markdown이 렌더링한 제목(h1/h2/h3)에 <code>id</code>가 없어 목차의 <code>#1-시스템-개요</code> 같은 프래그먼트가 매칭될 대상이 없었음. <code>rehype-slug</code> 플러그인으로 GitHub 스타일 슬러그 id를 자동 부여하고, 커스텀 heading 컴포넌트가 이 id를 그대로 전달하도록 수정.</td>
+</tr>
+<tr>
+<td>2026-08-28</td>
+<td>기능추가</td>
+<td>사이드바 "관리자 매뉴얼" 아래에 "사용자 매뉴얼" 메뉴 추가. <code>docs/manual.md</code>를 백엔드가 실시간으로 읽어(<code>GET /api/manual/user</code>) 프론트엔드에서 그대로 렌더링(react-markdown) — 별도 JSX 사본 없이 파일 하나가 곧 화면. 프로그램 전체 검토 후 <code>manual.md</code> 내용도 최신화(로그인/OTP, 프로세스 모니터, 장애 예측, 임계치 우선순위, SNMP 전략 순서 등 반영).</td>
+</tr>
+<tr>
+<td>2026-08-26</td>
+<td>기타</td>
+<td><code>.gitignore</code>의 프론트엔드 빌드 산출물 제외 규칙이 <code>frontend/dist/</code> + <code>frontend/.vite/</code> 두 줄에서 <code>frontend/d/.vite/</code> 한 줄로 잘못 합쳐져 있던 오타 복구.</td>
+</tr>
+<tr>
+<td>2026-08-26</td>
+<td>기능추가</td>
+<td>관리자 매뉴얼에 "변경 이력" 섹션 추가 — 이후 코드/설정 변경 시 이 표에 날짜별로 자동 기록 (현재는 이 문서로 이관됨).</td>
+</tr>
+<tr>
+<td>2026-08-26</td>
+<td>버그수정</td>
+<td>Linux 기반 장비(AhnLab MDS 등)의 SNMP 메모리 사용률이 실제보다 훨씬 높게(90%대) 표시되는 문제 수정. 재사용 가능한 페이지 캐시·버퍼(memCached, memBuffer)를 가용 메모리로 반영하도록 계산식을 개선하고, 잘못 매핑돼 있던 <code>memAvailReal</code> OID(.11→.6)를 정정.</td>
+</tr>
+<tr>
+<td>2026-08-25</td>
+<td>기능개선</td>
+<td>FortiGate·Juniper(Junos/ScreenOS) 등 방화벽 장비의 CPU·메모리 SNMP 수집 시, 범용 HR-MIB보다 벤더 전용 OID(fgSysCpuUsage, jnxOperatingCPU/Heap, nsResCpuLast1Min 등)를 우선 적용하도록 sysDescr/sysObjectID 기반 자동 벤더 감지 로직 추가.</td>
+</tr>
+<tr>
+<td>2026-08-24</td>
+<td>버그수정</td>
+<td>대시보드 CPU/메모리 패널에서 알람 센터에 설정된 벤더·모델별 임계치가 전역(제조사 공통) 설정보다 우선 적용되도록 수정.</td>
+</tr>
+<tr>
+<td>2026-07-27</td>
+<td>개선</td>
+<td>백엔드 기동 시 PostgreSQL이 아직 연결을 받지 못하는 상태(healthcheck 통과 직후 race)에서 메트릭 파티션 생성이 영구적으로 누락되던 문제 방지 — 매 폴링 사이클마다 파티션 존재 여부를 재확인해 자동 복구.</td>
+</tr>
+<tr>
+<td>2026-07-10</td>
+<td>기타</td>
+<td>README 및 환경변수 설정 문서 추가.</td>
+</tr>
+<tr>
+<td>2026-07-10</td>
+<td>초기 구축</td>
+<td>ZenithNMS 프로젝트 최초 커밋 — FastAPI + PostgreSQL + React 기반 SNMP 네트워크 모니터링 시스템.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>ZenithNMS 사용자 매뉴얼 v3.0 | 최종 수정: 2026-08-28</em>
+<em>이 문서는 앱 내 "사용자 매뉴얼" 메뉴에서 실시간으로 렌더링됩니다(좌측 목차 서브 메뉴 포함) — 프로그램이 변경되면 이 파일도 함께 갱신하고 커밋합니다 (CLAUDE.md 참고).</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

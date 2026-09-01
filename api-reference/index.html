@@ -1,0 +1,4076 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="장금상선 내부 네트워크 장비를 모니터링하는 Network Management System 문서">
+      
+      
+      
+      
+        <link rel="prev" href="../manual/">
+      
+      
+        <link rel="next" href="../ARCHITECTURE/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>API 참조 - ZenithNMS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zenithnms-api-참조-문서" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="ZenithNMS" class="md-header__button md-logo" aria-label="ZenithNMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZenithNMS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API 참조
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SinokorOfficial/zenithnms" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SinokorOfficial/zenithnms
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../manual/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  사용자 매뉴얼
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API 참조
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ARCHITECTURE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  아키텍처
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../DEPLOYMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  배포 가이드
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../RUNBOOK/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  운영 런북
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ZenithNMS" class="md-nav__button md-logo" aria-label="ZenithNMS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ZenithNMS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SinokorOfficial/zenithnms" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SinokorOfficial/zenithnms
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사용자 매뉴얼
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 참조
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 참조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#목차" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        목차
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-공통-규약" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 공통 규약
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 공통 규약">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#응답-형식" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        응답 형식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-상태-코드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP 상태 코드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#페이지네이션" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        페이지네이션
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#날짜시간" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        날짜/시간
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-인증-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 인증 (Auth)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 인증 (Auth)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apiauthlogin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/auth/login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiauthverify-otp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/auth/verify-otp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiauthlogout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/auth/logout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiauthme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/auth/me
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-헬스-및-대시보드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 헬스 및 대시보드
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 헬스 및 대시보드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apihealth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/health
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apisummary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-장비-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 장비 (Devices)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 장비 (Devices)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#장비-객체-deviceout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 객체 (DeviceOut)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesstats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apidevices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/devices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-apidevicesdevice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PUT /api/devices/{device_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apidevicesdevice_idremark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATCH /api/devices/{device_id}/remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apidevicesdevice_idalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATCH /api/devices/{device_id}/alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apidevicesdevice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DELETE /api/devices/{device_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_idinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_iddetail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/detail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_iddisks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/disks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_iddiskslive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/disks/live
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_iddisk-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/disk-debug
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_idsnmp-diag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/snmp-diag
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-메트릭-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 메트릭 (Metrics)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 메트릭 (Metrics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#메트릭-타입-metric_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메트릭 타입 (metric_type)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apimetricsdevicedevice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/metrics/device/{device_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apimetricsdevicedevice_idlatest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/metrics/device/{device_id}/latest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apimetricsaggregate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/metrics/aggregate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apimetricsretention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DELETE /api/metrics/retention
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-알람-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 알람 (Alerts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 알람 (Alerts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#알람-객체-alertout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        알람 객체 (AlertOut)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialertsstats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts/stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apialertsalert_idacknowledge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/alerts/{alert_id}/acknowledge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apialertsalert_idresolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/alerts/{alert_id}/resolve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialertsthresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts/thresholds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apialertsthresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/alerts/thresholds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-apialertsthresholdsvendor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PUT /api/alerts/thresholds/vendor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-apialertsthresholdsthr_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PUT /api/alerts/thresholds/{thr_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apialertsthresholdsthr_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DELETE /api/alerts/thresholds/{thr_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialertsvendors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts/vendors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialertsnotifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts/notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-apialertsnotifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PUT /api/alerts/notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apialertsnotificationstest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/alerts/notifications/test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-토폴로지-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 토폴로지 (Topology)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 토폴로지 (Topology)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#노드--엣지-객체" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        노드 / 엣지 객체
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apitopologydiscover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/topology/discover
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitopologydiscovertask_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/topology/discover/{task_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitopologyactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/topology/active
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apitopologynodesnode_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATCH /api/topology/nodes/{node_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitopologysnapshot_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/topology/{snapshot_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitopology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-mib-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. MIB Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. MIB Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apimibupload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/mib/upload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apimibwalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/mib/walk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apimibget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/mib/get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-프로세스-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 프로세스 (Processes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 프로세스 (Processes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiprocessesdevice_idprocesses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/processes/{device_id}/processes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-지오-위치-geo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 지오 위치 (Geo)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 지오 위치 (Geo)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apigeobatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/geo/batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apigeoip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/geo/{ip}
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-사용자-매뉴얼-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 사용자 매뉴얼 (Manual)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 사용자 매뉴얼 (Manual)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apimanualuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/manual/user
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-열거형-값-enums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 열거형 값 (Enums)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. 열거형 값 (Enums)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        device_type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        device_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snmp_version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alert_severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alert_severity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alert_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alert_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    배포 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNBOOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    운영 런북
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#목차" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        목차
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-공통-규약" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 공통 규약
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 공통 규약">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#응답-형식" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        응답 형식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-상태-코드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP 상태 코드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#페이지네이션" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        페이지네이션
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#날짜시간" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        날짜/시간
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-인증-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 인증 (Auth)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 인증 (Auth)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apiauthlogin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/auth/login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiauthverify-otp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/auth/verify-otp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiauthlogout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/auth/logout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiauthme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/auth/me
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-헬스-및-대시보드" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 헬스 및 대시보드
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 헬스 및 대시보드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apihealth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/health
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apisummary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-장비-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 장비 (Devices)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 장비 (Devices)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#장비-객체-deviceout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비 객체 (DeviceOut)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesstats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apidevices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/devices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-apidevicesdevice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PUT /api/devices/{device_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apidevicesdevice_idremark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATCH /api/devices/{device_id}/remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apidevicesdevice_idalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATCH /api/devices/{device_id}/alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apidevicesdevice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DELETE /api/devices/{device_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_idinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_iddetail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/detail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_iddisks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/disks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_iddiskslive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/disks/live
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_iddisk-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/disk-debug
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apidevicesdevice_idsnmp-diag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/devices/{device_id}/snmp-diag
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-메트릭-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 메트릭 (Metrics)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 메트릭 (Metrics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#메트릭-타입-metric_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메트릭 타입 (metric_type)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apimetricsdevicedevice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/metrics/device/{device_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apimetricsdevicedevice_idlatest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/metrics/device/{device_id}/latest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apimetricsaggregate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/metrics/aggregate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apimetricsretention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DELETE /api/metrics/retention
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-알람-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 알람 (Alerts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 알람 (Alerts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#알람-객체-alertout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        알람 객체 (AlertOut)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialertsstats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts/stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apialertsalert_idacknowledge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/alerts/{alert_id}/acknowledge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apialertsalert_idresolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/alerts/{alert_id}/resolve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialertsthresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts/thresholds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apialertsthresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/alerts/thresholds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-apialertsthresholdsvendor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PUT /api/alerts/thresholds/vendor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-apialertsthresholdsthr_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PUT /api/alerts/thresholds/{thr_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apialertsthresholdsthr_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DELETE /api/alerts/thresholds/{thr_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialertsvendors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts/vendors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apialertsnotifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/alerts/notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-apialertsnotifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PUT /api/alerts/notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apialertsnotificationstest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/alerts/notifications/test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-토폴로지-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 토폴로지 (Topology)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 토폴로지 (Topology)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#노드--엣지-객체" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        노드 / 엣지 객체
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apitopologydiscover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/topology/discover
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitopologydiscovertask_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/topology/discover/{task_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitopologyactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/topology/active
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apitopologynodesnode_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATCH /api/topology/nodes/{node_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitopologysnapshot_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/topology/{snapshot_id}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitopology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-mib-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. MIB Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. MIB Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apimibupload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/mib/upload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apimibwalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/mib/walk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apimibget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/mib/get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-프로세스-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 프로세스 (Processes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 프로세스 (Processes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiprocessesdevice_idprocesses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/processes/{device_id}/processes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-지오-위치-geo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 지오 위치 (Geo)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 지오 위치 (Geo)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apigeobatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/geo/batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apigeoip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/geo/{ip}
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-사용자-매뉴얼-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 사용자 매뉴얼 (Manual)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 사용자 매뉴얼 (Manual)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apimanualuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/manual/user
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-열거형-값-enums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 열거형 값 (Enums)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. 열거형 값 (Enums)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        device_type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        device_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snmp_version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alert_severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alert_severity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alert_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alert_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="zenithnms-api-참조-문서">ZenithNMS API 참조 문서<a class="headerlink" href="#zenithnms-api-참조-문서" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Base URL</strong>: <code>http://localhost:3000/api</code> (nginx가 <code>/api/</code>를 백엔드 컨테이너로 그대로 프록시)
+<strong>Swagger UI</strong>: 현재 미노출 — FastAPI 기본 <code>/docs</code>는 <code>/api</code> 프리픽스가 없어 위 프록시로는 접근 불가. 필요 시 백엔드 컨테이너 포트를 직접 열거나 <code>docker compose exec backend</code>로 접속.
+<strong>Content-Type</strong>: <code>application/json</code> (파일 업로드는 <code>multipart/form-data</code>)
+<strong>인증</strong>: 아래 2장 참고 — 로그인 후 발급된 JWT를 <code>Authorization: Bearer &lt;token&gt;</code> 헤더로 전달</p>
+</blockquote>
+<hr />
+<h2 id="목차">목차<a class="headerlink" href="#목차" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-공통-규약">공통 규약</a></li>
+<li><a href="#2-인증-auth">인증 (Auth)</a></li>
+<li><a href="#3-헬스-및-대시보드">헬스 및 대시보드</a></li>
+<li><a href="#4-장비-devices">장비 (Devices)</a></li>
+<li><a href="#5-메트릭-metrics">메트릭 (Metrics)</a></li>
+<li><a href="#6-알람-alerts">알람 (Alerts)</a></li>
+<li><a href="#7-토폴로지-topology">토폴로지 (Topology)</a></li>
+<li><a href="#8-mib-browser">MIB Browser</a></li>
+<li><a href="#9-프로세스-processes">프로세스 (Processes)</a></li>
+<li><a href="#10-지오-위치-geo">지오 위치 (Geo)</a></li>
+<li><a href="#11-사용자-매뉴얼-manual">사용자 매뉴얼 (Manual)</a></li>
+<li><a href="#12-열거형-값-enums">열거형 값 (Enums)</a></li>
+</ol>
+<hr />
+<h2 id="1-공통-규약">1. 공통 규약<a class="headerlink" href="#1-공통-규약" title="Permanent link">&para;</a></h2>
+<h3 id="응답-형식">응답 형식<a class="headerlink" href="#응답-형식" title="Permanent link">&para;</a></h3>
+<p>모든 응답은 JSON 형식입니다. 에러 응답:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;에러 메시지&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="http-상태-코드">HTTP 상태 코드<a class="headerlink" href="#http-상태-코드" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>코드</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>성공</td>
+</tr>
+<tr>
+<td>201</td>
+<td>생성 완료</td>
+</tr>
+<tr>
+<td>204</td>
+<td>삭제 완료 (본문 없음)</td>
+</tr>
+<tr>
+<td>400</td>
+<td>잘못된 요청</td>
+</tr>
+<tr>
+<td>401</td>
+<td>인증 실패 (로그인/OTP 오류, 토큰 만료·누락)</td>
+</tr>
+<tr>
+<td>404</td>
+<td>리소스 없음</td>
+</tr>
+<tr>
+<td>502</td>
+<td>SNMP 통신 실패</td>
+</tr>
+<tr>
+<td>503</td>
+<td>SNMP 라이브러리 사용 불가</td>
+</tr>
+</tbody>
+</table>
+<h3 id="페이지네이션">페이지네이션<a class="headerlink" href="#페이지네이션" title="Permanent link">&para;</a></h3>
+<p>목록 조회 엔드포인트는 공통으로 <code>limit</code> / <code>offset</code> 쿼리 파라미터를 지원합니다.</p>
+<h3 id="날짜시간">날짜/시간<a class="headerlink" href="#날짜시간" title="Permanent link">&para;</a></h3>
+<p>모든 datetime 필드는 ISO 8601 UTC 형식 (<code>2026-04-29T03:48:59.531214Z</code>)</p>
+<hr />
+<h2 id="2-인증-auth">2. 인증 (Auth)<a class="headerlink" href="#2-인증-auth" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/auth</code></p>
+<p>단일 관리자 계정 + SMS(CoolSMS) OTP 2단계 인증 구조입니다. 자세한 흐름은 <code>docs/manual.md</code> 2장을 참고하세요.</p>
+<h3 id="post-apiauthlogin">POST /api/auth/login<a class="headerlink" href="#post-apiauthlogin" title="Permanent link">&para;</a></h3>
+<p>이메일/비밀번호 검증 후 등록된 휴대폰 번호로 OTP 발송</p>
+<p><strong>요청 본문</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>타입</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>✅</td>
+<td>관리자 이메일</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>✅</td>
+<td>비밀번호</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTP가 전송되었습니다.&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;phone_masked&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;010-****-2823&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>에러</strong>
+- <code>401</code>: 이메일 또는 비밀번호 불일치</p>
+<hr />
+<h3 id="post-apiauthverify-otp">POST /api/auth/verify-otp<a class="headerlink" href="#post-apiauthverify-otp" title="Permanent link">&para;</a></h3>
+<p>OTP 검증 후 JWT 액세스 토큰 발급</p>
+<p><strong>요청 본문</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>타입</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>✅</td>
+<td>로그인 시 사용한 이메일</td>
+</tr>
+<tr>
+<td><code>otp</code></td>
+<td>string</td>
+<td>✅</td>
+<td>6자리 인증번호 (5분 이내 유효)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOi...&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin@company.com&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>에러</strong>
+- <code>401</code>: 인증번호 불일치 또는 만료</p>
+<hr />
+<h3 id="post-apiauthlogout">POST /api/auth/logout<a class="headerlink" href="#post-apiauthlogout" title="Permanent link">&para;</a></h3>
+<p><strong>응답</strong>: <code>{ "detail": "로그아웃 되었습니다." }</code></p>
+<blockquote>서버 측에 세션 상태가 없으므로(Stateless JWT) 실질적으로는 클라이언트가 토큰을 폐기하는 것으로 로그아웃이 완료됩니다.</blockquote>
+
+<hr />
+<h3 id="get-apiauthme">GET /api/auth/me<a class="headerlink" href="#get-apiauthme" title="Permanent link">&para;</a></h3>
+<p>현재 토큰의 사용자 확인 (인증 필요)</p>
+<p><strong>응답</strong>: <code>{ "email": "admin@company.com" }</code></p>
+<hr />
+<h2 id="3-헬스-및-대시보드">3. 헬스 및 대시보드<a class="headerlink" href="#3-헬스-및-대시보드" title="Permanent link">&para;</a></h2>
+<h3 id="get-apihealth">GET /api/health<a class="headerlink" href="#get-apihealth" title="Permanent link">&para;</a></h3>
+<p>API 서버 상태 확인</p>
+<p><strong>응답 예시</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="get-apisummary">GET /api/summary<a class="headerlink" href="#get-apisummary" title="Permanent link">&para;</a></h3>
+<p>대시보드용 전체 현황 요약 (장비 수 + 활성 알람 수)</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;alerts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;critical&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;warning&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="4-장비-devices">4. 장비 (Devices)<a class="headerlink" href="#4-장비-devices" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/devices</code></p>
+<h3 id="장비-객체-deviceout">장비 객체 (DeviceOut)<a class="headerlink" href="#장비-객체-deviceout" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.131&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;device_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;switch&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HQ-2F&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;vendor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cisco&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WS-C3560X-24&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;up&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;snmp_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v2c&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;snmp_community&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;public&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;snmp_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">161</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;last_polled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:48:59.531214Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;poll_interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;alert_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;remark&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-28T02:05:26.235578Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alert_enabled</code></td>
+<td>false면 이 장비는 알람 평가에서 제외됨 (점검 중 일시 차단용)</td>
+</tr>
+<tr>
+<td><code>remark</code></td>
+<td>시스템 탭에 표시되는 자유 메모 (최대 3000자)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="get-apidevicesstats">GET /api/devices/stats<a class="headerlink" href="#get-apidevicesstats" title="Permanent link">&para;</a></h3>
+<p>장비 상태별 통계</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;up&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;down&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;warning&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;unknown&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="get-apidevices">GET /api/devices<a class="headerlink" href="#get-apidevices" title="Permanent link">&para;</a></h3>
+<p>장비 목록 조회</p>
+<p><strong>쿼리 파라미터</strong></p>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>—</td>
+<td>상태 필터 (<code>up</code>, <code>down</code>, <code>warning</code>, <code>unknown</code>)</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>—</td>
+<td>유형 필터 (<code>router</code>, <code>switch</code>, <code>server</code>, <code>firewall</code>, <code>ap</code>, <code>unknown</code>)</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td>boolean</td>
+<td>—</td>
+<td>활성/비활성 필터</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>—</td>
+<td>호스트명 또는 IP 주소 검색 (부분 일치)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>int</td>
+<td>200</td>
+<td>최대 반환 수 (max: 1000)</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>int</td>
+<td>0</td>
+<td>페이지네이션 오프셋</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>: <code>DeviceOut[]</code></p>
+<hr />
+<h3 id="post-apidevices">POST /api/devices<a class="headerlink" href="#post-apidevices" title="Permanent link">&para;</a></h3>
+<p>장비 등록</p>
+<p><strong>요청 본문</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>타입</th>
+<th>필수</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hostname</code></td>
+<td>string</td>
+<td>✅</td>
+<td>—</td>
+<td>호스트명</td>
+</tr>
+<tr>
+<td><code>ip_address</code></td>
+<td>string</td>
+<td>✅</td>
+<td>—</td>
+<td>IP 주소 (중복 불가)</td>
+</tr>
+<tr>
+<td><code>device_type</code></td>
+<td>string</td>
+<td>—</td>
+<td><code>unknown</code></td>
+<td>장비 유형</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>위치</td>
+</tr>
+<tr>
+<td><code>vendor</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>제조사</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>모델명</td>
+</tr>
+<tr>
+<td><code>snmp_port</code></td>
+<td>int</td>
+<td>—</td>
+<td>161</td>
+<td>SNMP 포트</td>
+</tr>
+<tr>
+<td><code>snmp_version</code></td>
+<td>string</td>
+<td>—</td>
+<td><code>v2c</code></td>
+<td>SNMP 버전 (<code>v1</code>, <code>v2c</code>, <code>v3</code>)</td>
+</tr>
+<tr>
+<td><code>snmp_community</code></td>
+<td>string</td>
+<td>—</td>
+<td><code>public</code></td>
+<td>SNMP 커뮤니티 문자열</td>
+</tr>
+<tr>
+<td><code>snmp_v3_username</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>SNMPv3 사용자명</td>
+</tr>
+<tr>
+<td><code>snmp_v3_auth_protocol</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>SNMPv3 인증 프로토콜 (<code>MD5</code>, <code>SHA</code>)</td>
+</tr>
+<tr>
+<td><code>snmp_v3_auth_password</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>SNMPv3 인증 패스워드</td>
+</tr>
+<tr>
+<td><code>snmp_v3_priv_protocol</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>SNMPv3 암호화 프로토콜 (<code>DES</code>, <code>AES</code>)</td>
+</tr>
+<tr>
+<td><code>snmp_v3_priv_password</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>SNMPv3 암호화 패스워드</td>
+</tr>
+<tr>
+<td><code>poll_interval</code></td>
+<td>int</td>
+<td>—</td>
+<td>60</td>
+<td>폴링 주기 (초)</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td>boolean</td>
+<td>—</td>
+<td>true</td>
+<td>폴링 활성화 여부</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>: <code>DeviceOut</code> (HTTP 201)</p>
+<p><strong>에러</strong>
+- <code>400</code>: 동일 IP 주소 이미 등록됨</p>
+<blockquote>SNMPv3 자격증명은 데이터베이스에 <strong>암호화 없이</strong> 저장됩니다.</blockquote>
+
+<hr />
+<h3 id="get-apidevicesdevice_id">GET /api/devices/{device_id}<a class="headerlink" href="#get-apidevicesdevice_id" title="Permanent link">&para;</a></h3>
+<p>장비 단건 조회</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답</strong>: <code>DeviceOut</code></p>
+<p><strong>에러</strong>
+- <code>404</code>: 장비 없음</p>
+<hr />
+<h3 id="put-apidevicesdevice_id">PUT /api/devices/{device_id}<a class="headerlink" href="#put-apidevicesdevice_id" title="Permanent link">&para;</a></h3>
+<p>장비 정보 수정</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>요청 본문</strong>: POST와 동일한 스키마 (미전송 필드는 기존 값 유지)</p>
+<p><strong>응답</strong>: <code>DeviceOut</code></p>
+<hr />
+<h3 id="patch-apidevicesdevice_idremark">PATCH /api/devices/{device_id}/remark<a class="headerlink" href="#patch-apidevicesdevice_idremark" title="Permanent link">&para;</a></h3>
+<p>시스템 탭의 비고(REMARK) 메모만 단독 수정</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>요청 본문</strong>: <code>{ "remark": "점검 예정 2026-09-01" }</code></p>
+<p><strong>응답</strong>: <code>DeviceOut</code></p>
+<hr />
+<h3 id="patch-apidevicesdevice_idalert">PATCH /api/devices/{device_id}/alert<a class="headerlink" href="#patch-apidevicesdevice_idalert" title="Permanent link">&para;</a></h3>
+<p>알람 활성화 토글 (점검 중 알람 일시 차단용)</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>요청 본문</strong>: <code>{ "alert_enabled": false }</code></p>
+<p><strong>응답</strong>: <code>DeviceOut</code></p>
+<hr />
+<h3 id="delete-apidevicesdevice_id">DELETE /api/devices/{device_id}<a class="headerlink" href="#delete-apidevicesdevice_id" title="Permanent link">&para;</a></h3>
+<p>장비 삭제 (관련 메트릭·알람·인터페이스 함께 삭제)</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답</strong>: 없음 (HTTP 204)</p>
+<hr />
+<h3 id="get-apidevicesdevice_idinterfaces">GET /api/devices/{device_id}/interfaces<a class="headerlink" href="#get-apidevicesdevice_idinterfaces" title="Permanent link">&para;</a></h3>
+<p>장비 인터페이스 목록 (간략 정보)</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ifindex&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ifname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet0/1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ifdescr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet0/1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ifspeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;if_oper_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;if_admin_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>if_oper_status</code></td>
+<td>운영 상태 (1=Up, 2=Down)</td>
+</tr>
+<tr>
+<td><code>if_admin_status</code></td>
+<td>관리 상태 (1=Up, 2=Down)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="get-apidevicesdevice_iddetail">GET /api/devices/{device_id}/detail<a class="headerlink" href="#get-apidevicesdevice_iddetail" title="Permanent link">&para;</a></h3>
+<p>장비 상세 정보 — SNMP 수집 전체 데이터 (최근 2시간 기준)</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.131&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;up&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;device_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;switch&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sys_descr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cisco IOS Software ...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sys_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sys_uptime_secs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">864000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sys_uptime_str&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10일 0시간 0분 0초&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sys_location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HQ Server Room&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sys_contact&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin@company.com&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;last_polled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:48:59.531214Z&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;interfaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ifindex&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ifname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gi0/1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ifdescr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet0/1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ifalias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uplink to Core&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ifspeed_bps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;if_oper_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;if_admin_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;in_bps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">15234567.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;out_bps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8432100.0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;in_errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;out_errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;in_discards&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;out_discards&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;cpu_util&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;mem_util&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">43.2</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;protocols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ping_rtt_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.45</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ping_loss_pct&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;icmp_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12450</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;icmp_out&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12449</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tcp_curr_estab&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;udp_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">98234</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;udp_out&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">95123</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>섹션</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>system</code></td>
+<td>SNMP MIB-II sysGroup 정보 (sysDescr, sysName, 가동시간 등)</td>
+</tr>
+<tr>
+<td><code>interfaces</code></td>
+<td>IF-MIB 인터페이스 목록 + 실시간 트래픽/오류/폐기 카운터</td>
+</tr>
+<tr>
+<td><code>resources</code></td>
+<td>CPU/메모리 사용률 (벤더 자동 감지 + 다중 MIB 폴백 전략으로 수집, <code>docs/manual.md</code> 14장 참고)</td>
+</tr>
+<tr>
+<td><code>protocols</code></td>
+<td>Ping RTT/손실, ICMP/TCP/UDP MIB-II 카운터</td>
+</tr>
+</tbody>
+</table>
+<p><strong>에러</strong>
+- <code>404</code>: 장비 없음</p>
+<hr />
+<h3 id="get-apidevicesdevice_iddisks">GET /api/devices/{device_id}/disks<a class="headerlink" href="#get-apidevicesdevice_iddisks" title="Permanent link">&para;</a></h3>
+<p>가장 최근 폴링 사이클에서 저장된 디스크 스냅샷 조회 (DB 캐시, <code>device_sys_state.disk_info</code>)</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;total_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">107374182400</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;used_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">53687091200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;free_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">53687091200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;util_pct&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<p>서버 유형 장비에서만 의미 있는 데이터가 채워집니다 (<code>docs/manual.md</code> 7장 자원 탭 참고).</p>
+<hr />
+<h3 id="get-apidevicesdevice_iddiskslive">GET /api/devices/{device_id}/disks/live<a class="headerlink" href="#get-apidevicesdevice_iddiskslive" title="Permanent link">&para;</a></h3>
+<p>DB 캐시를 건너뛰고 지금 즉시 SNMP로 <code>hrStorageTable</code>을 다시 조회 (새로 추가된 디스크가 아직 폴링되지 않았을 때 사용)</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답</strong>: <code>/disks</code>와 동일한 스키마</p>
+<p><strong>에러</strong>
+- <code>503</code>: SNMP 라이브러리 사용 불가
+- <code>502</code>: SNMP walk 실패</p>
+<hr />
+<h3 id="get-apidevicesdevice_iddisk-debug">GET /api/devices/{device_id}/disk-debug<a class="headerlink" href="#get-apidevicesdevice_iddisk-debug" title="Permanent link">&para;</a></h3>
+<p><code>hrStorageTable</code>의 <strong>모든</strong> 항목을 필터링 없이 반환하는 진단용 엔드포인트 — 특정 드라이브가 디스크 카드에 안 보일 때 원인 확인용</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답 필드</strong>: <code>idx</code>, <code>type_raw</code>(원시 OID), <code>desc</code>, <code>alloc_unit</code>, <code>total_gb</code>/<code>used_gb</code>/<code>util_pct</code>, <code>is_memory</code>, <code>is_win_drive</code>, <code>included</code>(현재 필터 통과 여부), <code>reason</code></p>
+<hr />
+<h3 id="get-apidevicesdevice_idsnmp-diag">GET /api/devices/{device_id}/snmp-diag<a class="headerlink" href="#get-apidevicesdevice_idsnmp-diag" title="Permanent link">&para;</a></h3>
+<p>SNMP 진단 — 장비가 지원하는 OID 브랜치 확인 (CPU/메모리 MIB 지원 여부 파악용)</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>프로브 목록</strong>: HR-MIB CPU/Storage, UCD CPU/Mem, Cisco CPU/Mem, TP-Link CPU/Mem, H3C CPU/Mem, Huawei CPU, Zyxel CPU, Mikrotik CPU, Juniper CPU, FortiGate, Handreamnet, NetScreen 등 (<code>docs/manual.md</code> 14장의 벤더 OID 참고표와 동일한 목록)</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.121&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L2-HQ-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;snmp_community&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;public&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;snmp_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">161</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;probes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;HR-MIB CPU&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.25.3.3.1.2.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Integer&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Cisco CPU&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;TP-Link CPU&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No SNMP response&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>에러</strong>
+- <code>404</code>: 장비 없음
+- <code>503</code>: SNMP 라이브러리 사용 불가</p>
+<hr />
+<h2 id="5-메트릭-metrics">5. 메트릭 (Metrics)<a class="headerlink" href="#5-메트릭-metrics" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/metrics</code></p>
+<h3 id="메트릭-타입-metric_type">메트릭 타입 (metric_type)<a class="headerlink" href="#메트릭-타입-metric_type" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>값</th>
+<th>설명</th>
+<th>단위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu_util</code></td>
+<td>CPU 사용률</td>
+<td>%</td>
+</tr>
+<tr>
+<td><code>mem_util</code></td>
+<td>메모리 사용률</td>
+<td>%</td>
+</tr>
+<tr>
+<td><code>ping_rtt</code></td>
+<td>Ping 평균 RTT</td>
+<td>ms</td>
+</tr>
+<tr>
+<td><code>ping_loss</code></td>
+<td>Ping 패킷 손실률</td>
+<td>%</td>
+</tr>
+<tr>
+<td><code>if_in_octets</code></td>
+<td>인터페이스 수신 속도</td>
+<td>bps</td>
+</tr>
+<tr>
+<td><code>if_out_octets</code></td>
+<td>인터페이스 송신 속도</td>
+<td>bps</td>
+</tr>
+<tr>
+<td><code>if_in_errors</code></td>
+<td>인터페이스 수신 오류</td>
+<td>count</td>
+</tr>
+<tr>
+<td><code>if_out_errors</code></td>
+<td>인터페이스 송신 오류</td>
+<td>count</td>
+</tr>
+<tr>
+<td><code>if_oper_status</code></td>
+<td>인터페이스 운영 상태</td>
+<td>1=Up / 2=Down</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="get-apimetricsdevicedevice_id">GET /api/metrics/device/{device_id}<a class="headerlink" href="#get-apimetricsdevicedevice_id" title="Permanent link">&para;</a></h3>
+<p>시계열 메트릭 데이터 조회</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>쿼리 파라미터</strong></p>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>필수</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metric_type</code></td>
+<td>string</td>
+<td>✅</td>
+<td>—</td>
+<td>메트릭 타입 (위 표 참조)</td>
+</tr>
+<tr>
+<td><code>interface_id</code></td>
+<td>int</td>
+<td>—</td>
+<td>null</td>
+<td>인터페이스 ID (인터페이스 메트릭 필터)</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>datetime</td>
+<td>—</td>
+<td>24시간 전</td>
+<td>조회 시작 시각 (ISO 8601)</td>
+</tr>
+<tr>
+<td><code>end</code></td>
+<td>datetime</td>
+<td>—</td>
+<td>현재</td>
+<td>조회 종료 시각 (ISO 8601)</td>
+</tr>
+<tr>
+<td><code>resolution</code></td>
+<td>string</td>
+<td>—</td>
+<td><code>raw</code></td>
+<td>해상도 (<code>raw</code>, <code>hourly</code>, <code>daily</code>)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>int</td>
+<td>—</td>
+<td>1440</td>
+<td>최대 데이터 포인트 수 (max: 10000)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu_util&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;interface_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<p><strong>에러</strong>
+- <code>404</code>: 장비 없음
+- <code>400</code>: 알 수 없는 metric_type</p>
+<p><strong>해상도별 보존 기간</strong></p>
+<table>
+<thead>
+<tr>
+<th>해상도</th>
+<th>집계 단위</th>
+<th>보존 기간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>raw</code></td>
+<td>1분 원본 (주 단위 파티션)</td>
+<td>7일</td>
+</tr>
+<tr>
+<td><code>hourly</code></td>
+<td>1시간 평균</td>
+<td>30일</td>
+</tr>
+<tr>
+<td><code>daily</code></td>
+<td>1일 평균</td>
+<td>365일</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="get-apimetricsdevicedevice_idlatest">GET /api/metrics/device/{device_id}/latest<a class="headerlink" href="#get-apimetricsdevicedevice_idlatest" title="Permanent link">&para;</a></h3>
+<p>장비의 모든 메트릭 타입별 최신값 조회 (최근 1시간 기준)</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:48:59Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu_util&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;interface_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:48:59Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;if_in_octets&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;interface_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">15234567.0</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<hr />
+<h3 id="post-apimetricsaggregate">POST /api/metrics/aggregate<a class="headerlink" href="#post-apimetricsaggregate" title="Permanent link">&para;</a></h3>
+<p>시간별 집계 수동 실행 (스케줄러 자동 실행 / 수동 트리거용)</p>
+<p><strong>응답</strong>: <code>{ "status": "aggregated" }</code></p>
+<hr />
+<h3 id="delete-apimetricsretention">DELETE /api/metrics/retention<a class="headerlink" href="#delete-apimetricsretention" title="Permanent link">&para;</a></h3>
+<p>오래된 메트릭 데이터 정리 수동 실행</p>
+<p><strong>응답</strong>: <code>{ "status": "cleaned" }</code></p>
+<hr />
+<h2 id="6-알람-alerts">6. 알람 (Alerts)<a class="headerlink" href="#6-알람-alerts" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/alerts</code></p>
+<h3 id="알람-객체-alertout">알람 객체 (AlertOut)<a class="headerlink" href="#알람-객체-alertout" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu_util&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;interface_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;warning&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">85.3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">80.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CPU 사용률 85.3% — WARNING 임계값(80%) 초과&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;triggered_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T03:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;resolved_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;acknowledged_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;acknowledged_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="get-apialertsstats">GET /api/alerts/stats<a class="headerlink" href="#get-apialertsstats" title="Permanent link">&para;</a></h3>
+<p>활성 알람 통계</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;total_active&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;critical&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;warning&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;info&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="get-apialerts">GET /api/alerts<a class="headerlink" href="#get-apialerts" title="Permanent link">&para;</a></h3>
+<p>알람 목록 조회</p>
+<p><strong>쿼리 파라미터</strong></p>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>—</td>
+<td>상태 필터 (<code>active</code>, <code>acknowledged</code>, <code>resolved</code>)</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td>string</td>
+<td>—</td>
+<td>심각도 필터 (<code>critical</code>, <code>warning</code>, <code>info</code>)</td>
+</tr>
+<tr>
+<td><code>device_id</code></td>
+<td>int</td>
+<td>—</td>
+<td>특정 장비 알람만 조회</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>int</td>
+<td>100</td>
+<td>최대 반환 수 (max: 1000)</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>int</td>
+<td>0</td>
+<td>페이지네이션 오프셋</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>: <code>AlertOut[]</code> (triggered_at 내림차순)</p>
+<hr />
+<h3 id="post-apialertsalert_idacknowledge">POST /api/alerts/{alert_id}/acknowledge<a class="headerlink" href="#post-apialertsalert_idacknowledge" title="Permanent link">&para;</a></h3>
+<p>알람 확인 처리</p>
+<p><strong>경로 파라미터</strong>: <code>alert_id</code> (int)</p>
+<p><strong>쿼리 파라미터</strong></p>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>타입</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user</code></td>
+<td>string</td>
+<td><code>admin</code></td>
+<td>확인 처리한 사용자명</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>: <code>AlertOut</code> (acknowledged_at, acknowledged_by 채워짐)</p>
+<p><strong>에러</strong>
+- <code>404</code>: 알람 없음
+- <code>400</code>: 활성(active) 상태가 아닌 알람</p>
+<hr />
+<h3 id="post-apialertsalert_idresolve">POST /api/alerts/{alert_id}/resolve<a class="headerlink" href="#post-apialertsalert_idresolve" title="Permanent link">&para;</a></h3>
+<p>알람 해결 처리</p>
+<p><strong>경로 파라미터</strong>: <code>alert_id</code> (int)</p>
+<p><strong>응답</strong>: <code>AlertOut</code> (resolved_at 채워짐, status=<code>resolved</code>)</p>
+<p><strong>에러</strong>
+- <code>404</code>: 알람 없음</p>
+<hr />
+<h3 id="get-apialertsthresholds">GET /api/alerts/thresholds<a class="headerlink" href="#get-apialertsthresholds" title="Permanent link">&para;</a></h3>
+<p>알람 임계값 목록</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;vendor&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;metric_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu_util&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;warning_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">80.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;critical_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">95.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<blockquote>
+<p><code>device_id</code>/<code>vendor</code>/<code>model</code> 모두 null = 전체 장비에 적용되는 전역 임계값. 적용 우선순위(장비 &gt; 벤더+모델 &gt; 벤더 &gt; 서버 유형 기본값 &gt; 전역)는 <code>docs/manual.md</code> 11장 참고.</p>
+</blockquote>
+<hr />
+<h3 id="post-apialertsthresholds">POST /api/alerts/thresholds<a class="headerlink" href="#post-apialertsthresholds" title="Permanent link">&para;</a></h3>
+<p>알람 임계값 생성 (장비별 또는 전역)</p>
+<p><strong>요청 본문</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>타입</th>
+<th>필수</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>device_id</code></td>
+<td>int</td>
+<td>—</td>
+<td>null</td>
+<td>지정 시 해당 장비 전용 임계값</td>
+</tr>
+<tr>
+<td><code>vendor</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>벤더 전용 임계값 (device_id와 함께 쓰지 않음)</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>string</td>
+<td>—</td>
+<td>null</td>
+<td>vendor와 함께 지정 시 벤더+모델 전용</td>
+</tr>
+<tr>
+<td><code>metric_type</code></td>
+<td>string</td>
+<td>✅</td>
+<td>—</td>
+<td>메트릭 타입</td>
+</tr>
+<tr>
+<td><code>interface_id</code></td>
+<td>int</td>
+<td>—</td>
+<td>null</td>
+<td>특정 인터페이스 한정</td>
+</tr>
+<tr>
+<td><code>warning_value</code></td>
+<td>float</td>
+<td>—</td>
+<td>null</td>
+<td>경고 임계값</td>
+</tr>
+<tr>
+<td><code>critical_value</code></td>
+<td>float</td>
+<td>—</td>
+<td>null</td>
+<td>위험 임계값</td>
+</tr>
+<tr>
+<td><code>duration_secs</code></td>
+<td>int</td>
+<td>—</td>
+<td>0</td>
+<td>임계값 지속 시간 (초)</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td>boolean</td>
+<td>—</td>
+<td>true</td>
+<td>임계값 활성화</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>: <code>ThresholdOut</code> (HTTP 201)</p>
+<hr />
+<h3 id="put-apialertsthresholdsvendor">PUT /api/alerts/thresholds/vendor<a class="headerlink" href="#put-apialertsthresholdsvendor" title="Permanent link">&para;</a></h3>
+<p>벤더(선택적으로 모델까지) 단위로 CPU/메모리 임계값을 한 번에 upsert — 대시보드의 "제조사별 임계치 설정" UI가 사용</p>
+<p><strong>요청 본문</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>타입</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vendor</code></td>
+<td>string</td>
+<td>✅</td>
+<td>대상 벤더</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>string</td>
+<td>—</td>
+<td>지정 시 벤더+모델 전용, 미지정 시 벤더 전체</td>
+</tr>
+<tr>
+<td><code>cpu_warning</code> / <code>cpu_critical</code></td>
+<td>float</td>
+<td>—</td>
+<td>CPU 임계값</td>
+</tr>
+<tr>
+<td><code>mem_warning</code> / <code>mem_critical</code></td>
+<td>float</td>
+<td>—</td>
+<td>메모리 임계값</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td>boolean</td>
+<td>—</td>
+<td>기본 true</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>: <code>ThresholdOut[]</code> (cpu_util, mem_util 두 행 upsert 결과)</p>
+<hr />
+<h3 id="put-apialertsthresholdsthr_id">PUT /api/alerts/thresholds/{thr_id}<a class="headerlink" href="#put-apialertsthresholdsthr_id" title="Permanent link">&para;</a></h3>
+<p>알람 임계값 수정</p>
+<p><strong>경로 파라미터</strong>: <code>thr_id</code> (int)</p>
+<p><strong>요청 본문</strong>: POST <code>/thresholds</code>와 동일 (미전송 필드 유지)</p>
+<p><strong>응답</strong>: <code>ThresholdOut</code></p>
+<hr />
+<h3 id="delete-apialertsthresholdsthr_id">DELETE /api/alerts/thresholds/{thr_id}<a class="headerlink" href="#delete-apialertsthresholdsthr_id" title="Permanent link">&para;</a></h3>
+<p>알람 임계값 삭제</p>
+<p><strong>경로 파라미터</strong>: <code>thr_id</code> (int)</p>
+<p><strong>응답</strong>: 없음 (HTTP 204)</p>
+<hr />
+<h3 id="get-apialertsvendors">GET /api/alerts/vendors<a class="headerlink" href="#get-apialertsvendors" title="Permanent link">&para;</a></h3>
+<p>등록된 장비 중 벤더/모델 조합 목록 (벤더별 임계치 설정 UI의 드롭다운용)</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;vendor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fortigate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FG201E&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;device_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<hr />
+<h3 id="get-apialertsnotifications">GET /api/alerts/notifications<a class="headerlink" href="#get-apialertsnotifications" title="Permanent link">&para;</a></h3>
+<p>이메일 알림 설정 조회</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;recipients&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ops@company.com;noc@company.com&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;notify_on_down&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;notify_on_critical&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;notify_on_warning&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;down_interval_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;critical_interval_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;warning_interval_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<blockquote>이 API는 <strong>수신자·발송 여부·반복 간격</strong>만 관리합니다. SMTP 서버 자체(호스트/포트/계정/비밀번호/발신자)는 API로 변경할 수 없고 <code>SMTP_HOST</code>/<code>SMTP_PORT</code>/<code>SMTP_USER</code>/<code>SMTP_PASSWORD</code>/<code>SMTP_FROM</code> 환경변수(<code>backend/app/config.py</code>)로만 설정하며, 반영하려면 백엔드 재시작이 필요합니다.</blockquote>
+
+<hr />
+<h3 id="put-apialertsnotifications">PUT /api/alerts/notifications<a class="headerlink" href="#put-apialertsnotifications" title="Permanent link">&para;</a></h3>
+<p>이메일 알림 설정 수정 (요청 본문은 위 응답과 동일한 스키마 전체)</p>
+<p><strong>응답</strong>: <code>NotificationSettingsSchema</code></p>
+<hr />
+<h3 id="post-apialertsnotificationstest">POST /api/alerts/notifications/test<a class="headerlink" href="#post-apialertsnotificationstest" title="Permanent link">&para;</a></h3>
+<p>현재 설정으로 테스트 메일 발송</p>
+<hr />
+<h2 id="7-토폴로지-topology">7. 토폴로지 (Topology)<a class="headerlink" href="#7-토폴로지-topology" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/topology</code></p>
+<h3 id="노드--엣지-객체">노드 / 엣지 객체<a class="headerlink" href="#노드--엣지-객체" title="Permanent link">&para;</a></h3>
+<p><strong>TopologyNode</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.131&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sys_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;device_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;switch&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;x_pos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">450.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;y_pos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">300.0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>TopologyEdge</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;source_node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;target_node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;source_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gi0/1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;target_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gi1/0/24&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;link_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldp&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="post-apitopologydiscover">POST /api/topology/discover<a class="headerlink" href="#post-apitopologydiscover" title="Permanent link">&para;</a></h3>
+<p>네트워크 자동 탐색 시작 (비동기 작업)</p>
+<p><strong>요청 본문</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>타입</th>
+<th>필수</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cidr</code></td>
+<td>string</td>
+<td>✅</td>
+<td>—</td>
+<td>탐색 대상 CIDR (예: <code>192.168.0.0/24</code>)</td>
+</tr>
+<tr>
+<td><code>snmp_community</code></td>
+<td>string</td>
+<td>—</td>
+<td><code>public</code></td>
+<td>SNMP 커뮤니티</td>
+</tr>
+<tr>
+<td><code>snmp_timeout</code></td>
+<td>int</td>
+<td>—</td>
+<td>5</td>
+<td>SNMP 타임아웃 (초)</td>
+</tr>
+<tr>
+<td><code>snmp_retries</code></td>
+<td>int</td>
+<td>—</td>
+<td>1</td>
+<td>SNMP 재시도 횟수</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;task_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a3f8c1d2-...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;running&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="get-apitopologydiscovertask_id">GET /api/topology/discover/{task_id}<a class="headerlink" href="#get-apitopologydiscovertask_id" title="Permanent link">&para;</a></h3>
+<p>탐색 작업 상태 확인</p>
+<p><strong>경로 파라미터</strong>: <code>task_id</code> (string)</p>
+<p><strong>응답</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;snapshot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>status</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>running</code></td>
+<td>진행 중</td>
+</tr>
+<tr>
+<td><code>completed</code></td>
+<td>완료 (snapshot_id 있음)</td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td>실패 (error 메시지 있음)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="get-apitopologyactive">GET /api/topology/active<a class="headerlink" href="#get-apitopologyactive" title="Permanent link">&para;</a></h3>
+<p>가장 최근 활성 토폴로지 스냅샷 조회</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;snapshot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cidr_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.0/24&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;discovered_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T02:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>에러</strong>
+- <code>404</code>: 활성 스냅샷 없음</p>
+<hr />
+<h3 id="patch-apitopologynodesnode_id">PATCH /api/topology/nodes/{node_id}<a class="headerlink" href="#patch-apitopologynodesnode_id" title="Permanent link">&para;</a></h3>
+<p>노드를 캔버스에서 드래그해 옮긴 위치를 저장</p>
+<p><strong>경로 파라미터</strong>: <code>node_id</code> (int)</p>
+<p><strong>요청 본문</strong>: <code>{ "x_pos": 450.0, "y_pos": 300.0 }</code></p>
+<p><strong>응답</strong>: <code>{ "ok": true }</code></p>
+<hr />
+<h3 id="get-apitopologysnapshot_id">GET /api/topology/{snapshot_id}<a class="headerlink" href="#get-apitopologysnapshot_id" title="Permanent link">&para;</a></h3>
+<p>특정 스냅샷 조회</p>
+<p><strong>경로 파라미터</strong>: <code>snapshot_id</code> (int)</p>
+<p><strong>응답</strong>: 위 <code>/active</code>와 동일</p>
+<hr />
+<h3 id="get-apitopology">GET /api/topology<a class="headerlink" href="#get-apitopology" title="Permanent link">&para;</a></h3>
+<p>토폴로지 스냅샷 목록 (최근 20개)</p>
+<p><strong>응답</strong>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Auto-discovered&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;cidr_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.0/24&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;is_active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;discovered_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-29T02:00:00Z&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<hr />
+<h2 id="8-mib-browser">8. MIB Browser<a class="headerlink" href="#8-mib-browser" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/mib</code></p>
+<h3 id="post-apimibupload">POST /api/mib/upload<a class="headerlink" href="#post-apimibupload" title="Permanent link">&para;</a></h3>
+<p>MIB 파일 업로드 및 파싱</p>
+<p><strong>요청</strong>: <code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file</code></td>
+<td>MIB 파일 (<code>.mib</code>, <code>.txt</code>, <code>.my</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RFC1213-MIB.mib&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ifDescr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.2.2.1.2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DisplayString&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A textual string containing information about the interface.&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ifOperStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.2.2.1.8&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INTEGER&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;unknownNode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;parent_hint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enterprise&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<blockquote>
+<p><code>oid: null</code>인 노드는 부모 OID를 해석할 수 없어 숫자 OID 미확정 상태</p>
+</blockquote>
+<p><strong>에러</strong>
+- <code>400</code>: 파일 디코딩 불가</p>
+<hr />
+<h3 id="post-apimibwalk">POST /api/mib/walk<a class="headerlink" href="#post-apimibwalk" title="Permanent link">&para;</a></h3>
+<p>SNMP Bulk-Walk</p>
+<p><strong>요청 본문</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>타입</th>
+<th>필수</th>
+<th>기본값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ip</code></td>
+<td>string</td>
+<td>✅</td>
+<td>—</td>
+<td>대상 장비 IP</td>
+</tr>
+<tr>
+<td><code>community</code></td>
+<td>string</td>
+<td>—</td>
+<td><code>public</code></td>
+<td>SNMP 커뮤니티</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td>int</td>
+<td>—</td>
+<td>161</td>
+<td>SNMP 포트</td>
+</tr>
+<tr>
+<td><code>oid</code></td>
+<td>string</td>
+<td>✅</td>
+<td>—</td>
+<td>시작 OID (점 표기법)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>응답</strong> (최대 500개)
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.2.2.1.2.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet0/1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DisplayString&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<p><strong>에러</strong>
+- <code>503</code>: SNMP 라이브러리 사용 불가
+- <code>502</code>: Walk 실패 (연결 불가, 타임아웃 등)</p>
+<hr />
+<h3 id="post-apimibget">POST /api/mib/get<a class="headerlink" href="#post-apimibget" title="Permanent link">&para;</a></h3>
+<p>SNMP GET (단일 OID 값 조회)</p>
+<p><strong>요청 본문</strong>: Walk와 동일</p>
+<p><strong>응답</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;oid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.6.1.2.1.1.5.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SW-L3-HQ-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DisplayString&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>에러</strong>
+- <code>503</code>: SNMP 라이브러리 사용 불가
+- <code>502</code>: GET 실패
+- <code>404</code>: 해당 OID 값 없음</p>
+<hr />
+<h2 id="9-프로세스-processes">9. 프로세스 (Processes)<a class="headerlink" href="#9-프로세스-processes" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/processes</code></p>
+<h3 id="get-apiprocessesdevice_idprocesses">GET /api/processes/{device_id}/processes<a class="headerlink" href="#get-apiprocessesdevice_idprocesses" title="Permanent link">&para;</a></h3>
+<p>장비의 실시간 프로세스 목록 (HOST-RESOURCES-MIB, DB 미저장 — 요청 시마다 SNMP로 즉시 수집). 자세한 내용은 <code>docs/manual.md</code> 8장 참고.</p>
+<p><strong>경로 파라미터</strong>: <code>device_id</code> (int)</p>
+<p><strong>응답 스키마</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;processes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;pid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;httpsd&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;cpu_pct&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;mem_kb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45056</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;running&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;pss_kb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45056</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;total_mem_kb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3796992</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;used_mem_kb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2400000</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;polled_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1735500000.0</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>에러</strong>
+- <code>404</code>: 장비 없음</p>
+<blockquote>hrSWRunTable을 지원하지 않는 장비(대부분의 L2 스위치 등)는 mock 데이터로 대체 응답합니다.</blockquote>
+
+<hr />
+<h2 id="10-지오-위치-geo">10. 지오 위치 (Geo)<a class="headerlink" href="#10-지오-위치-geo" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/geo</code></p>
+<p>장비 IP를 위경도로 변환해 지도 시각화에 사용합니다. 공인 IP는 외부 <code>ip-api.com</code>을 호출하고(응답은 프로세스 메모리에 캐시), 사설 IP는 장비의 <code>location</code> 문자열을 키워드로 매칭해 대략적 좌표를 추정합니다.</p>
+<h3 id="post-apigeobatch">POST /api/geo/batch<a class="headerlink" href="#post-apigeobatch" title="Permanent link">&para;</a></h3>
+<p>여러 IP를 한 번에 조회 (공인 IP는 최대 100개씩 배치 처리)</p>
+<p><strong>요청 본문</strong>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203.0.113.10&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;서울 본사&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<p><strong>응답</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;203.0.113.10&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">37.5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;lng&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">127.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Seoul&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Korea&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;192.168.1.1&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">37.5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;lng&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">127.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;서울&quot;</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Korea&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="get-apigeoip">GET /api/geo/{ip}<a class="headerlink" href="#get-apigeoip" title="Permanent link">&para;</a></h3>
+<p>단일 IP 조회 (하위 호환용 — 라우팅 충돌 방지를 위해 <code>/batch</code>보다 뒤에 등록됨)</p>
+<p><strong>응답</strong>: 사설/루프백은 <code>{ "lat": null, "lng": null, "private": true }</code></p>
+<hr />
+<h2 id="11-사용자-매뉴얼-manual">11. 사용자 매뉴얼 (Manual)<a class="headerlink" href="#11-사용자-매뉴얼-manual" title="Permanent link">&para;</a></h2>
+<p><strong>Prefix:</strong> <code>/api/manual</code></p>
+<h3 id="get-apimanualuser">GET /api/manual/user<a class="headerlink" href="#get-apimanualuser" title="Permanent link">&para;</a></h3>
+<p><code>docs/manual.md</code> 파일을 요청마다 디스크에서 읽어 그대로 반환 — 프론트엔드 "사용자 매뉴얼" 메뉴가 이 응답을 <code>react-markdown</code>으로 렌더링</p>
+<p><strong>응답</strong>: <code>{ "content": "# ZenithNMS 사용자 매뉴얼\n\n..." }</code></p>
+<p><strong>에러</strong>
+- <code>404</code>: <code>docs/manual.md</code> 파일이 없음</p>
+<hr />
+<h2 id="12-열거형-값-enums">12. 열거형 값 (Enums)<a class="headerlink" href="#12-열거형-값-enums" title="Permanent link">&para;</a></h2>
+<h3 id="device_type">device_type<a class="headerlink" href="#device_type" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>router</code></td>
+<td>라우터</td>
+</tr>
+<tr>
+<td><code>switch</code></td>
+<td>스위치</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td>서버</td>
+</tr>
+<tr>
+<td><code>firewall</code></td>
+<td>방화벽</td>
+</tr>
+<tr>
+<td><code>ap</code></td>
+<td>무선 AP</td>
+</tr>
+<tr>
+<td><code>unknown</code></td>
+<td>알 수 없음</td>
+</tr>
+</tbody>
+</table>
+<h3 id="device_status">device_status<a class="headerlink" href="#device_status" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>up</code></td>
+<td>정상</td>
+</tr>
+<tr>
+<td><code>down</code></td>
+<td>다운</td>
+</tr>
+<tr>
+<td><code>warning</code></td>
+<td>경고</td>
+</tr>
+<tr>
+<td><code>unknown</code></td>
+<td>알 수 없음</td>
+</tr>
+</tbody>
+</table>
+<h3 id="snmp_version">snmp_version<a class="headerlink" href="#snmp_version" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v1</code></td>
+<td>SNMPv1</td>
+</tr>
+<tr>
+<td><code>v2c</code></td>
+<td>SNMPv2c</td>
+</tr>
+<tr>
+<td><code>v3</code></td>
+<td>SNMPv3 (USM)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alert_severity">alert_severity<a class="headerlink" href="#alert_severity" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>critical</code></td>
+<td>위험</td>
+</tr>
+<tr>
+<td><code>warning</code></td>
+<td>경고</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td>정보</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alert_status">alert_status<a class="headerlink" href="#alert_status" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>값</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>active</code></td>
+<td>활성</td>
+</tr>
+<tr>
+<td><code>acknowledged</code></td>
+<td>확인됨</td>
+</tr>
+<tr>
+<td><code>resolved</code></td>
+<td>해결됨</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>ZenithNMS API Reference v2.0 | 최종 수정: 2026-08-28</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
