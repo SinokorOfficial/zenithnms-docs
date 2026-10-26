@@ -528,6 +528,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#비밀번호-찾기-이메일-재설정-링크" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        비밀번호 찾기 (이메일 재설정 링크)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -955,6 +966,17 @@
     <span class="md-ellipsis">
       
         임계치 적용 우선순위
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비별-cpu--메모리-임계치" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비별 CPU / 메모리 임계치
       
     </span>
   </a>
@@ -1570,6 +1592,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#비밀번호-찾기-이메일-재설정-링크" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        비밀번호 찾기 (이메일 재설정 링크)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1997,6 +2030,17 @@
     <span class="md-ellipsis">
       
         임계치 적용 우선순위
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#장비별-cpu--메모리-임계치" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장비별 CPU / 메모리 임계치
       
     </span>
   </a>
@@ -2600,6 +2644,50 @@ FastAPI + PostgreSQL + React 기반 SNMP 폴링 플랫폼</p>
 </table>
 <blockquote>SMS/이메일 자격증명은 <code>auth.env</code>에 보관하며 절대 git에 커밋하지 않습니다.</blockquote>
 
+<h3 id="비밀번호-찾기-이메일-재설정-링크">비밀번호 찾기 (이메일 재설정 링크)<a class="headerlink" href="#비밀번호-찾기-이메일-재설정-링크" title="Permanent link">&para;</a></h3>
+<p>로그인 화면 하단의 <strong>"비밀번호를 잊으셨습니까?"</strong> 를 누르면 비밀번호 찾기 화면으로 전환됩니다.</p>
+<ol>
+<li>등록된 관리자 이메일(<code>AUTH_USER_EMAIL</code>)을 입력 → <code>POST /api/auth/forgot-password</code></li>
+<li>이메일이 등록된 계정과 일치하면 그 주소로 <strong>재설정 링크</strong>가 담긴 메일이 발송됩니다 (계정 존재 여부를 노출하지 않기 위해 화면 안내 문구는 일치 여부와 무관하게 동일)</li>
+<li>메일의 <strong>비밀번호 재설정</strong> 버튼(또는 <code>/reset-password?token=...</code> 링크)을 열어 새 비밀번호를 두 번 입력 → <code>POST /api/auth/reset-password</code></li>
+<li>변경 완료 후 로그인 화면으로 이동, 새 비밀번호 + OTP로 로그인</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>링크 유효 시간</td>
+<td>30분, <strong>1회용</strong> (<code>PASSWORD_RESET_TTL_MINUTES</code>로 조정)</td>
+</tr>
+<tr>
+<td>재요청 제한</td>
+<td>재설정 메일은 1분에 1회만 발송</td>
+</tr>
+<tr>
+<td>비밀번호 정책</td>
+<td>8자 이상, 영문 + 숫자 포함</td>
+</tr>
+<tr>
+<td>저장 위치</td>
+<td>새 해시는 DB <code>auth_credentials</code> 테이블(id=1)에 저장되며 <code>auth.env</code>의 <code>AUTH_USER_PASSWORD_HASH</code>보다 <strong>우선</strong> 적용됨. 따라서 재설정 후 컨테이너 재생성 없이 즉시 반영되고, <code>auth.env</code>는 초기값 역할만 함</td>
+</tr>
+<tr>
+<td>링크 주소</td>
+<td>브라우저 요청의 Origin(예: <code>http://localhost:3000</code>)을 기준으로 생성, 없으면 <code>APP_BASE_URL</code> 환경변수 사용</td>
+</tr>
+<tr>
+<td>메일 발송</td>
+<td>알림 메일과 같은 SMTP 설정(<code>SMTP_HOST/USER/PASSWORD</code>) 사용. SMTP 미설정 시 발송 불가 안내가 뜨고 백엔드 로그에 링크가 기록됨</td>
+</tr>
+</tbody>
+</table>
+<blockquote>DB에 저장된 해시를 지우고 <code>auth.env</code> 값으로 되돌리려면 <code>UPDATE auth_credentials SET password_hash = NULL WHERE id = 1;</code> 을 실행하면 됩니다.</blockquote>
+
 <hr />
 <h2 id="3-시작-및-종료">3. 시작 및 종료<a class="headerlink" href="#3-시작-및-종료" title="Permanent link">&para;</a></h2>
 <h3 id="최초-실행-빌드-포함">최초 실행 (빌드 포함)<a class="headerlink" href="#최초-실행-빌드-포함" title="Permanent link">&para;</a></h3>
@@ -3176,6 +3264,44 @@ SW-CORE-01,192.168.1.1,switch,v2c,public,161,IDC-A,Cisco,Catalyst 9300
 <li><strong>전역(global) 임계치</strong> — 벤더/장비 미지정</li>
 </ol>
 <p>임계치 설정은 알람 센터 → <strong>임계치 설정</strong> 탭에서 관리합니다. 특정 장비를 지정하거나 비워두면 전체 장비(또는 전체 벤더)에 적용됩니다.</p>
+<h3 id="장비별-cpu--메모리-임계치">장비별 CPU / 메모리 임계치<a class="headerlink" href="#장비별-cpu--메모리-임계치" title="Permanent link">&para;</a></h3>
+<p>알람 센터 → <strong>임계치 설정</strong> 탭의 <strong>"장비별 CPU / 메모리 임계치"</strong> 표에서 장비 목록의 모든 장비를 <strong>벤더 · 모델 · 호스트명(IP)</strong> 단위로 보고, 장비마다 CPU·메모리의 경고/위험 값을 따로 지정할 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>입력칸의 회색 숫자</td>
+<td>비워두면 적용되는 <strong>상속값</strong>(벤더+모델 → 벤더 → 전역 → 서버 기본 순)</td>
+</tr>
+<tr>
+<td>적용 기준</td>
+<td><code>장비별</code> 또는 상속 출처(<code>벤더+모델</code>/<code>벤더</code>/<code>전역</code>/<code>서버 기본</code>/<code>없음</code>)</td>
+</tr>
+<tr>
+<td>저장</td>
+<td>입력한 값으로 장비별 임계치 생성·수정. CPU(또는 메모리)의 경고·위험을 <strong>둘 다 비우고</strong> 저장하면 그 지표는 장비별 설정이 삭제되어 상속값으로 돌아감</td>
+</tr>
+<tr>
+<td>↺ 버튼</td>
+<td>해당 장비의 장비별 임계치(CPU·메모리)를 모두 삭제하고 상속값으로 복귀</td>
+</tr>
+<tr>
+<td>활성 해제</td>
+<td>장비별 값은 보관하되 알람 판정에는 상속값을 사용</td>
+</tr>
+<tr>
+<td>검색 / 필터</td>
+<td>호스트명·IP·벤더·모델 검색, "장비별 설정된 장비만" 보기</td>
+</tr>
+</tbody>
+</table>
+<blockquote>장비별 값은 지표 단위로 우선합니다. 예를 들어 CPU 경고만 장비별로 넣으면 그 장비의 CPU는 장비별 경고값만 사용하고(벤더 위험값은 쓰지 않음), 메모리는 계속 벤더/모델 값을 상속합니다. 경고 값은 위험 값보다 클 수 없고, 값 범위는 0~100%입니다.</blockquote>
+
 <h3 id="알람-확인--해결">알람 확인 / 해결<a class="headerlink" href="#알람-확인--해결" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3698,6 +3824,21 @@ SNMP Community/포트 설정을 확인하십시오.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>2026-10-26</td>
+<td>개선</td>
+<td>발송 메일(로그인 인증번호, 비밀번호 재설정, 장애/임계치/복구 알람, 테스트 메일) 본문의 <strong>검정 박스를 연회색(light grey)으로 변경</strong>. 바탕이 밝아짐에 따라 글자색도 짙은 회색·진한 강조색으로 조정해 가독성 유지.</td>
+</tr>
+<tr>
+<td>2026-10-21</td>
+<td>기능개선</td>
+<td>알람 센터 임계치 설정 탭에 <strong>장비별 CPU / 메모리 임계치</strong> 표 추가 — 기존 벤더/모델 단위 설정에 더해, 장비 목록의 각 장비(벤더·모델·호스트명)마다 CPU·메모리 경고/위험 값을 개별 지정 가능. 비워두면 벤더/모델 값을 상속하며 상속값과 출처를 함께 표시. (11. 알람 센터 → 장비별 CPU / 메모리 임계치 참고)</td>
+</tr>
+<tr>
+<td>2026-10-20</td>
+<td>기능개선</td>
+<td>로그인 화면에 <strong>"비밀번호를 잊으셨습니까?"</strong> 비밀번호 찾기 기능 추가. 등록된 이메일을 입력하면 해당 주소로 30분·1회용 재설정 링크를 발송하고, 링크의 <code>/reset-password</code> 화면에서 새 비밀번호를 설정할 수 있음. 재설정된 해시는 DB(<code>auth_credentials</code>)에 저장되어 <code>auth.env</code> 값보다 우선 적용되므로 컨테이너 재생성 없이 즉시 반영됨. (2. 로그인 및 인증 참고)</td>
+</tr>
 <tr>
 <td>2026-09-01</td>
 <td>버그수정</td>
