@@ -1016,6 +1016,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#카카오톡-cpu-단계-알림" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        카카오톡 CPU 단계 알림
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2074,6 +2085,17 @@
     <span class="md-ellipsis">
       
         이메일 알림 설정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#카카오톡-cpu-단계-알림" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        카카오톡 CPU 단계 알림
       
     </span>
   </a>
@@ -3409,6 +3431,119 @@ SW-CORE-01,192.168.1.1,switch,v2c,public,161,IDC-A,Cisco,Catalyst 9300
 <p>DOWN/UP과 별개로, CPU·메모리 등 임계치 초과로 알람이 발생하면 해당 심각도의 알림이 켜져 있을 때 설정한 간격(기본 CRITICAL 5분·WARNING 10분)마다 반복 발송됩니다. 메트릭이 정상 복귀해 알람이 RESOLVED되면 반복 발송이 멈춥니다.</p>
 <blockquote><strong>[테스트 발송]</strong> 버튼으로 SMTP 연결을 검증할 수 있습니다. 시각은 모두 KST(UTC+9), <code>YYYY/MM/DD HH:MM:SS</code> 형식입니다.</blockquote>
 
+<h3 id="카카오톡-cpu-단계-알림">카카오톡 CPU 단계 알림<a class="headerlink" href="#카카오톡-cpu-단계-알림" title="Permanent link">&para;</a></h3>
+<p>알람 센터 → <strong>알람 설정</strong> 탭 하단의 "카카오톡 CPU 단계 알림"에서 설정합니다. 대상 서버의 CPU 사용률이 지정한 단계(기본 60·70·80·90%)로 올라갈 때마다 카카오톡 <strong>"나와의 채팅"</strong> 으로 아래 형식의 메시지를 보냅니다. 이메일 알림·임계치 설정과는 독립적으로 동작합니다.</p>
+<div class="highlight"><pre><span></span><code>[CPU 임계치 경고]
+* 서버명 : svr-Portal#1
+* 서버IP : 192.168.1.212
+* CPU 사용률 : 60%
+* MEMORY 사용률 : 72.4%
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>대상 서버</td>
+<td>장비 호스트명을 쉼표로 구분 (대소문자 무시). 현재 <code>svr-Portal#1</code> ~ <code>svr-Portal#6</code></td>
+</tr>
+<tr>
+<td>CPU 알림 단계</td>
+<td>1~100 사이 숫자를 쉼표로 구분</td>
+</tr>
+<tr>
+<td>수신 카카오 계정</td>
+<td>연동할 카카오 계정 (표시·검증용). 메시지는 <strong>실제로 로그인해 연동한 계정</strong>의 "나와의 채팅"으로 갑니다</td>
+</tr>
+<tr>
+<td>REST API 키 / Client Secret</td>
+<td>Kakao Developers 앱 정보</td>
+</tr>
+</tbody>
+</table>
+<p><strong>발송 정책</strong></p>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU가 새로 더 높은 단계에 도달</td>
+<td>그 단계로 1회 발송 (예: 55→63% → "60%", 63→74% → "70%")</td>
+</tr>
+<tr>
+<td>한 번에 여러 단계를 넘음</td>
+<td>도달한 가장 높은 단계만 발송 (예: 55→92% → "90%")</td>
+</tr>
+<tr>
+<td>같은 단계 안에서 오르내림</td>
+<td>재발송 안 함</td>
+</tr>
+<tr>
+<td>마지막 발송 단계보다 5%p 이상 하락</td>
+<td>기준 단계를 현재 값의 단계로 낮춤 → 다시 오르면 재발송</td>
+</tr>
+<tr>
+<td>장비 알람 토글 OFF / 장비 DOWN</td>
+<td>발송 안 함</td>
+</tr>
+<tr>
+<td>백엔드 재시작</td>
+<td>단계 기억이 초기화되어, 그때 CPU가 60% 이상이면 현재 단계로 1회 발송</td>
+</tr>
+</tbody>
+</table>
+<p>메시지의 CPU %는 실측값이 아니라 <strong>도달한 단계 값</strong>입니다 (예: 실측 63.4% → "60%"). MEMORY %는 같은 폴링 시점의 <strong>실제 사용률</strong>(소수점 1자리)이며, 메모리 값을 수집하지 못한 경우 "확인 불가"로 표시됩니다.</p>
+<p><strong>최초 연동 절차 (1회)</strong></p>
+<p>(2026-11 기준 개편된 Kakao Developers 콘솔 메뉴 이름입니다.)</p>
+<ol>
+<li><a href="https://developers.kakao.com">Kakao Developers</a> 로그인 → 상단 <strong>앱</strong> → <strong>애플리케이션 추가</strong> (앱 이름 예: <code>ZenithNMS</code>). 이 로그인 계정은 앱 관리용이며 알림 수신 계정과 달라도 됩니다.</li>
+<li>좌측 <strong>제품 설정 → 카카오 로그인 → 일반</strong> 에서 <em>사용 설정</em> 상태를 <strong>ON</strong>.</li>
+<li>좌측 <strong>앱 설정 → 앱 → 플랫폼 키</strong> → <strong>REST API 키</strong>(Default Rest API Key) 클릭 → 상세 화면에서:</li>
+<li>맨 위 <strong>REST API 키</strong> 값 복사</li>
+<li><strong>카카오 로그인 리다이렉트 URI</strong> 에 알람 설정 화면에 표시된 주소(예: <code>http://localhost:3000/api/kakao/callback</code>) 입력 후 추가/저장. 터널 등 다른 주소로 접속해 연동한다면 그 주소 기준 URI도 추가.</li>
+<li><strong>클라이언트 시크릿 → 카카오 로그인</strong> 줄의 <em>코드</em> 복사 (새 키는 기본으로 활성화 ON 상태. "비즈니스 인증" 줄의 코드가 아님)</li>
+<li>좌측 <strong>카카오 로그인 → 동의항목</strong> → <strong>접근권한</strong> 표의 <em>카카오톡 메시지 전송(talk_message)</em> → <strong>설정</strong> → <strong>선택 동의</strong> + 동의 목적 입력 후 저장.</li>
+<li>ZenithNMS 알람 설정 화면에 <strong>REST API 키</strong>와 <strong>Client Secret</strong> 입력 → <strong>카카오 계정 연동</strong> → 수신 계정(예: 회사 담당자 카카오 계정)으로 로그인·동의.</li>
+<li><strong>테스트 메시지</strong> 버튼으로 카카오톡 "나와의 채팅" 수신 확인.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>오류</th>
+<th>원인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KOE006</td>
+<td>리다이렉트 URI 미등록 또는 불일치 (http/https·포트·끝 <code>/</code>까지 정확히 일치해야 함)</td>
+</tr>
+<tr>
+<td>KOE010</td>
+<td>클라이언트 시크릿이 활성화돼 있는데 값을 입력하지 않았거나 틀림</td>
+</tr>
+<tr>
+<td>KOE101</td>
+<td>REST API 키 오류</td>
+</tr>
+<tr>
+<td>테스트 발송 <code>-402 insufficient scopes</code></td>
+<td>talk_message 동의항목 미설정 또는 로그인 시 미동의 → 동의항목 확인 후 <strong>다시 연동</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>비즈 앱이 아닌 일반 앱은 카카오계정(이메일) 동의항목이 "권한 없음"이라 연동된 계정의 이메일을 확인할 수 없습니다. 연동 상태에는 이메일 대신 <strong>회원번호</strong>가 표시되므로, 연동 시 카카오 로그인 화면에서 수신 계정으로 로그인했는지 직접 확인하고 테스트 메시지로 검증하세요.</blockquote>
+
+<blockquote>액세스 토큰(약 6시간)은 발송 시 자동 갱신되며, 리프레시 토큰(약 2개월)도 사용 중에는 카카오가 자동 연장합니다. 2개월 이상 한 번도 발송·테스트가 없으면 만료될 수 있으니, 화면의 "재연동 필요 시점"을 참고해 필요하면 <strong>다시 연동</strong>하세요. 발송 실패는 백엔드 로그(<code>zenith.kakao</code>)에 기록되고, 다음 폴링 주기에 재시도합니다.</blockquote>
+
 <hr />
 <h2 id="12-mib-browser">12. MIB Browser<a class="headerlink" href="#12-mib-browser" title="Permanent link">&para;</a></h2>
 <p>등록된 장비를 대상으로 SNMP Walk/GET을 수동 실행하고 OID 값을 조회합니다.</p>
@@ -3824,6 +3959,26 @@ SNMP Community/포트 설정을 확인하십시오.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>2026-11-20</td>
+<td>개선</td>
+<td>카카오톡 CPU 단계 알림 메시지의 CPU·MEMORY 줄을 <code>항목 : 값</code> 형식(<code>* CPU 사용률 : 60%</code>, <code>* MEMORY 사용률 : 72.4%</code>)으로 변경. 매뉴얼의 카카오 최초 연동 절차를 개편된 Kakao Developers 콘솔 메뉴 기준으로 갱신하고 오류 코드 안내 추가.</td>
+</tr>
+<tr>
+<td>2026-11-20</td>
+<td>개선</td>
+<td>카카오톡 CPU 단계 알림 메시지 형식 변경 — 항목별 <code>*</code> 목록(서버명·서버IP·CPU 사용률)으로 정리하고, 같은 시점의 실제 MEMORY 사용률 줄 추가.</td>
+</tr>
+<tr>
+<td>2026-11-19</td>
+<td>개선</td>
+<td>카카오톡 CPU 단계 알림 메시지에 서버 IP 줄(<code>서버IP : x.x.x.x</code>) 추가.</td>
+</tr>
+<tr>
+<td>2026-11-19</td>
+<td>기능추가</td>
+<td>알람 센터에 <strong>카카오톡 CPU 단계 알림</strong> 추가 — 지정 서버(svr-Portal#1~#6)의 CPU 사용률이 60·70·80·90% 단계로 오를 때마다 카카오톡 "나와의 채팅"으로 경고 메시지 발송. 카카오 계정 OAuth 연동·테스트 발송·연동 해제 UI 포함.</td>
+</tr>
 <tr>
 <td>2026-10-26</td>
 <td>개선</td>
