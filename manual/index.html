@@ -3574,6 +3574,39 @@ FW-DMZ-01,192.168.1.2,firewall,30
 
 <h3 id="카카오톡-cpu-단계-알림">카카오톡 CPU 단계 알림<a class="headerlink" href="#카카오톡-cpu-단계-알림" title="Permanent link">&para;</a></h3>
 <p>알람 센터 → <strong>알람 설정</strong> 탭 하단의 "카카오톡 CPU 단계 알림"에서 설정합니다. 대상 서버의 CPU 사용률이 지정한 단계(기본 60·70·80·90%)로 올라갈 때마다 카카오톡 <strong>"나와의 채팅"</strong> 으로 아래 형식의 메시지를 보냅니다. 이메일 알림·임계치 설정과는 독립적으로 동작합니다.</p>
+<p>화면은 세 구역으로 나뉘며, <strong>각 구역의 저장 버튼은 그 구역 값만 저장</strong>합니다. 저장하지 않은 변경이 있는 구역에는 "● 저장 안 된 변경 있음"이 표시됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>구역</th>
+<th>적용 범위</th>
+<th>항목</th>
+<th>저장</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 공통 설정</td>
+<td><strong>두 채널 모두</strong></td>
+<td>알림 사용(ON/OFF), 대상 서버, CPU 알림 단계</td>
+<td><strong>공통 설정 저장</strong></td>
+</tr>
+<tr>
+<td>② 채널 1 — "나와의 채팅"</td>
+<td>이 채널만</td>
+<td>수신 카카오 계정, REST API 키, Client Secret, 연동·테스트·연동 해제</td>
+<td><strong>채널 1 설정 저장</strong> (카카오 계정 연동 시에도 자동 저장)</td>
+</tr>
+<tr>
+<td>③ 채널 2 — SureBiz 알림톡</td>
+<td>이 채널만</td>
+<td>수신 휴대폰 번호, 알림톡 테스트 (인증 정보·템플릿은 서버 <code>.env</code>)</td>
+<td>번호 추가·삭제 시 <strong>즉시 저장</strong> (버튼 없음)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>① 공통 설정의 알림 사용을 OFF로 저장하면 <strong>두 채널 모두</strong> 자동 발송이 중지됩니다 (각 채널 구역에 안내 표시, 테스트 발송은 가능).</blockquote>
+
 <div class="highlight"><pre><span></span><code>[CPU 임계치 경고]
 
 * 서버명 : svr-Portal#1
@@ -3591,19 +3624,19 @@ FW-DMZ-01,192.168.1.2,firewall,30
 </thead>
 <tbody>
 <tr>
-<td>대상 서버</td>
+<td>대상 서버 (① 공통)</td>
 <td>장비 호스트명을 쉼표로 구분 (대소문자 무시). 현재 <code>svr-Portal#1</code> ~ <code>svr-Portal#6</code></td>
 </tr>
 <tr>
-<td>CPU 알림 단계</td>
+<td>CPU 알림 단계 (① 공통)</td>
 <td>1~100 사이 숫자를 쉼표로 구분</td>
 </tr>
 <tr>
-<td>수신 카카오 계정</td>
+<td>수신 카카오 계정 (② 채널 1)</td>
 <td>연동할 카카오 계정 (표시·검증용). 메시지는 <strong>실제로 로그인해 연동한 계정</strong>의 "나와의 채팅"으로 갑니다</td>
 </tr>
 <tr>
-<td>REST API 키 / Client Secret</td>
+<td>REST API 키 / Client Secret (② 채널 1)</td>
 <td>Kakao Developers 앱 정보</td>
 </tr>
 </tbody>
@@ -3688,7 +3721,7 @@ FW-DMZ-01,192.168.1.2,firewall,30
 <blockquote>액세스 토큰(약 6시간)은 발송 시 자동 갱신되며, 리프레시 토큰(약 2개월)도 사용 중에는 카카오가 자동 연장합니다. 2개월 이상 한 번도 발송·테스트가 없으면 만료될 수 있으니, 화면의 "재연동 필요 시점"을 참고해 필요하면 <strong>다시 연동</strong>하세요. 발송 실패는 백엔드 로그(<code>zenith.kakao</code>)에 기록되고, 다음 폴링 주기에 재시도합니다.</blockquote>
 
 <h3 id="surebiz-카카오-알림톡-회사-채널--휴대폰-번호">SureBiz 카카오 알림톡 (회사 채널 → 휴대폰 번호)<a class="headerlink" href="#surebiz-카카오-알림톡-회사-채널--휴대폰-번호" title="Permanent link">&para;</a></h3>
-<p>위 "나와의 채팅"과 <strong>같은 대상 서버·CPU 단계·사용 설정</strong>으로, 회사가 가입한 SureBiz(슈어엠) 카카오 알림톡을 이용해 지정한 휴대폰 번호로도 경고를 보냅니다. 두 채널은 서로 독립적으로 동작합니다 (한쪽이 미연동·실패여도 다른 쪽은 정상 발송, 실패한 채널만 다음 폴링 주기에 재시도).</p>
+<p>화면의 <strong>③ 채널 2</strong> 구역입니다. 위 "나와의 채팅"과 <strong>같은 ① 공통 설정(대상 서버·CPU 단계·알림 사용)</strong> 으로, 회사가 가입한 SureBiz(슈어엠) 카카오 알림톡을 이용해 지정한 휴대폰 번호로도 경고를 보냅니다. 두 채널은 서로 독립적으로 동작합니다 (한쪽이 미연동·실패여도 다른 쪽은 정상 발송, 실패한 채널만 다음 폴링 주기에 재시도).</p>
 <p>발송 문구는 SureBiz에서 승인된 템플릿 <strong>NMS_THRESHOLD_001</strong> 과 정확히 같아야 합니다.</p>
 <div class="highlight"><pre><span></span><code>[CPU 임계치 경고]
 
@@ -3746,8 +3779,8 @@ FW-DMZ-01,192.168.1.2,firewall,30
 <li><strong>값 확인</strong> — 승인된 템플릿 코드, 발신프로필 키(발신프로필 관리 화면, 최대 40자 영숫자 — 채널 ID <code>@…</code>와 다름), 슈어엠 아이디, REST API 인증키(기본정보 → 내정보 → 맨 아래 REST API 인증키), 문자 재전송용 등록 발신번호.</li>
 <li><strong>발신 IP 등록</strong> — SureBiz에 ZenithNMS 서버의 <strong>공인 IP</strong>(서버에서 <code>curl -s ifconfig.me</code>)를 등록합니다. 미등록 IP에서는 슈어엠 API가 <code>403 Forbidden</code>으로 차단합니다. 서버 공인 IP가 바뀌면(재배포 등) 다시 등록해야 합니다.</li>
 <li><strong><code>.env</code> 입력</strong> — 위 표의 <code>SUREM_*</code> 값을 서버 <code>.env</code>에 넣고 <code>sudo docker compose up -d</code> 로 컨테이너를 재생성합니다 (<code>restart</code>로는 <code>.env</code> 변경이 반영되지 않음). 운영(Azure) 서버에도 같은 값을 별도로 넣어야 합니다.</li>
-<li><strong>수신번호 등록</strong> — 알람 설정 탭의 카카오톡 CPU 단계 알림 하단 <strong>SureBiz 카카오 알림톡</strong> 상자의 <strong>수신 휴대폰 번호</strong> 입력칸에 <strong>이름</strong>(선택, 20자 이내 · 쉼표/콜론 불가)과 번호(<code>010-1234-5678</code>, <code>01012345678</code>, <code>+82 10-…</code> 모두 가능)를 넣고 <strong>추가</strong>(또는 Enter)합니다. 목록에는 <code>이름 010-****-5678</code>처럼 표시되어 누구의 번호인지 알 수 있습니다. 이미 등록된 번호에 이름을 붙이려면 ×로 삭제 후 이름과 함께 다시 추가하세요. 삭제는 번호 옆 <strong>×</strong>. 휴대폰(01X) 번호만 등록되고 같은 번호는 중복 등록되지 않습니다. 화면에는 가운데 자리가 가려져 표시되며, 변경은 컨테이너 재시작 없이 다음 알림부터 바로 적용됩니다. 알림 1건당 수신자 수만큼 과금됩니다.</li>
-<li><strong>테스트</strong> — 같은 상자에서 "사용 중"과 수신번호를 확인하고 <strong>알림톡 테스트</strong>로 수신을 확인합니다. 테스트도 승인 템플릿 형식 그대로(첫 번째 대상 서버 기준) 실제 발송되며 건당 과금됩니다.</li>
+<li><strong>수신번호 등록</strong> — 알람 설정 탭의 카카오톡 CPU 단계 알림 <strong>③ 채널 2 — SureBiz 카카오 알림톡</strong> 구역의 <strong>수신 휴대폰 번호</strong> 입력칸에 <strong>이름</strong>(선택, 20자 이내 · 쉼표/콜론 불가)과 번호(<code>010-1234-5678</code>, <code>01012345678</code>, <code>+82 10-…</code> 모두 가능)를 넣고 <strong>추가</strong>(또는 Enter)합니다. 목록에는 <code>이름 010-****-5678</code>처럼 표시되어 누구의 번호인지 알 수 있습니다. 이미 등록된 번호에 이름을 붙이려면 ×로 삭제 후 이름과 함께 다시 추가하세요. 삭제는 번호 옆 <strong>×</strong>. 휴대폰(01X) 번호만 등록되고 같은 번호는 중복 등록되지 않습니다. 화면에는 가운데 자리가 가려져 표시되며, 변경은 컨테이너 재시작 없이 다음 알림부터 바로 적용됩니다. 알림 1건당 수신자 수만큼 과금됩니다.</li>
+<li><strong>테스트</strong> — 같은 구역에서 "사용 중"과 수신번호를 확인하고 <strong>알림톡 테스트</strong>로 수신을 확인합니다. 테스트도 승인 템플릿 형식 그대로(첫 번째 대상 서버 기준) 실제 발송되며 건당 과금됩니다.</li>
 </ol>
 <blockquote>인증키·발신프로필 키는 메신저·메일·AI 대화 등에 붙여 넣지 말고 서버 <code>.env</code>에만 직접 입력하세요. 노출됐다면 SureBiz 기본정보 → 내정보 → REST API 인증키에서 <strong>재발급</strong>하고(이전 키는 무효화) 아래처럼 <code>.env</code>만 교체한 뒤 컨테이너를 재생성합니다.</blockquote>
 
@@ -4275,6 +4308,11 @@ SNMP Community/포트 설정을 확인하십시오.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>2026-11-27</td>
+<td>개선</td>
+<td><strong>카카오톡 CPU 단계 알림 화면을 공통/채널별 구역으로 재구성</strong> — ① 공통 설정(알림 사용·대상 서버·CPU 단계, 두 채널 모두 적용), ② 채널 1 "나와의 채팅", ③ 채널 2 SureBiz 알림톡으로 나누고 "공통 · 두 채널 모두 적용" / "이 채널만 적용" 표시를 붙임. 저장 버튼을 구역별(공통 설정 저장 / 채널 1 설정 저장)로 분리해 각 구역 값만 저장하고, 미저장 변경 표시와 공통 OFF 시 채널별 안내 추가. 알림톡 수신번호는 즉시 저장됨을 명시.</td>
+</tr>
 <tr>
 <td>2026-11-25</td>
 <td>기능개선</td>
