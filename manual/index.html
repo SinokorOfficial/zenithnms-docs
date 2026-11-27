@@ -3807,9 +3807,51 @@ FW-DMZ-01,192.168.1.2,firewall,30
 <li><strong>값 확인</strong> — 승인된 템플릿 코드, 발신프로필 키(발신프로필 관리 화면, 최대 40자 영숫자 — 채널 ID <code>@…</code>와 다름), 슈어엠 아이디, REST API 인증키(기본정보 → 내정보 → 맨 아래 REST API 인증키), 문자 재전송용 등록 발신번호.</li>
 <li><strong>발신 IP 등록</strong> — SureBiz에 ZenithNMS 서버의 <strong>공인 IP</strong>(서버에서 <code>curl -s ifconfig.me</code>)를 등록합니다. 미등록 IP에서는 슈어엠 API가 <code>403 Forbidden</code>으로 차단합니다. 서버 공인 IP가 바뀌면(재배포 등) 다시 등록해야 합니다.</li>
 <li><strong><code>.env</code> 입력</strong> — 위 표의 <code>SUREM_*</code> 값을 서버 <code>.env</code>에 넣고 <code>sudo docker compose up -d</code> 로 컨테이너를 재생성합니다 (<code>restart</code>로는 <code>.env</code> 변경이 반영되지 않음). 운영(Azure) 서버에도 같은 값을 별도로 넣어야 합니다.</li>
-<li><strong>수신번호 등록</strong> — 알람 설정 탭의 카카오톡 CPU 단계 알림 <strong>③ 채널 2 — SureBiz 카카오 알림톡</strong> 구역의 <strong>수신 휴대폰 번호</strong> 입력칸에 <strong>이름</strong>(선택, 20자 이내 · 쉼표/콜론/느낌표 불가)과 번호(<code>010-1234-5678</code>, <code>01012345678</code>, <code>+82 10-…</code> 모두 가능)를 넣고 <strong>추가</strong>(또는 Enter)합니다. 목록에는 <code>이름 010-****-5678</code>처럼 표시되어 누구의 번호인지 알 수 있습니다. 이미 등록된 번호에 이름을 붙이려면 ×로 삭제 후 이름과 함께 다시 추가하세요. 각 수신자 이름 앞의 <strong>체크박스</strong>로 발송 대상을 고릅니다 — <strong>체크된 수신자에게만</strong> 실제 CPU 알림과 알림톡 테스트가 발송되고, 체크를 해제한 수신자는 목록에 취소선으로 남아 발송에서만 제외됩니다(체크 변경은 즉시 저장). 새로 추가한 번호는 체크된 상태로 등록되며, 전원 체크 해제 시 "발송 대상 없음"으로 표시되고 알림톡이 발송되지 않습니다. 삭제는 번호 옆 <strong>×</strong>. 휴대폰(01X) 번호만 등록되고 같은 번호는 중복 등록되지 않습니다. 화면에는 가운데 자리가 가려져 표시되며, 변경은 컨테이너 재시작 없이 다음 알림부터 바로 적용됩니다. 알림 1건당 체크된 수신자 수만큼 과금됩니다.</li>
-<li><strong>테스트</strong> — 같은 구역에서 "사용 중"과 수신번호를 확인하고 <strong>알림톡 테스트</strong>로 수신을 확인합니다. 테스트도 <strong>체크된 수신자에게만</strong> 발송되며, 발송 전 확인창에 대상자 이름이 표시됩니다. 테스트도 승인 템플릿 형식 그대로(첫 번째 대상 서버 기준) 실제 발송되며 건당 과금됩니다.</li>
+<li><strong>수신번호 등록</strong> — 알람 설정 탭의 카카오톡 CPU 단계 알림 <strong>③ 채널 2 — SureBiz 카카오 알림톡</strong> 구역의 <strong>수신 휴대폰 번호</strong> 입력칸에 <strong>이름</strong>(선택, 20자 이내 · 쉼표/콜론/느낌표 불가)과 번호(<code>010-1234-5678</code>, <code>01012345678</code>, <code>+82 10-…</code> 모두 가능)를 넣고 <strong>추가</strong>(또는 Enter)합니다. 목록에는 <code>이름 010-****-5678</code>처럼 표시되어 누구의 번호인지 알 수 있습니다. 이미 등록된 번호에 이름을 붙이려면 ×로 삭제 후 이름과 함께 다시 추가하세요. 각 수신자 이름 앞의 <strong>체크박스</strong>로 발송 대상을 고릅니다 — <strong>체크된 수신자에게만</strong> 실제 CPU 알림과 알림톡 테스트가 발송되고, 체크를 해제한 수신자는 목록에 취소선으로 남아 발송에서만 제외됩니다(체크 변경은 즉시 저장). 새로 추가한 번호는 체크된 상태로 등록되며, 전원 체크 해제 시 "발송 대상 없음"으로 표시되고 알림톡이 발송되지 않습니다. 목록 위 <strong>전체 선택</strong> / <strong>선택 해제</strong> 버튼으로 모든 수신자를 한 번에 체크하거나 해제할 수 있습니다.</li>
 </ol>
+<p><strong>파일로 일괄 등록</strong> — <strong>파일 업로드 (CSV/XLSX)</strong> 버튼으로 이름·휴대폰 목록 파일을 올리면 수신자가 한꺼번에 추가됩니다. <strong>양식</strong> 버튼으로 CSV 양식(<code>이름,휴대폰</code>)을 내려받아 엑셀에서 채워 그대로 저장하면 됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>규칙</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>파일 형식</td>
+<td><code>.csv</code>(UTF-8 또는 엑셀 기본 CP949) · <code>.xlsx</code>(첫 번째 시트). 구형 <code>.xls</code>는 <code>.xlsx</code>/<code>.csv</code>로 다시 저장. 최대 1MB · 1,000행</td>
+</tr>
+<tr>
+<td>열 구성</td>
+<td>첫 행에 <code>이름</code>/<code>성명</code>/<code>name</code>, <code>휴대폰</code>/<code>핸드폰</code>/<code>전화</code>/<code>번호</code>/<code>phone</code> 같은 헤더가 있으면 그 열을 사용. 헤더가 없으면 1열 이름 · 2열 휴대폰(열이 하나면 번호만)</td>
+</tr>
+<tr>
+<td>기존 목록</td>
+<td><strong>유지</strong> — 파일의 번호가 추가만 되며, 이미 등록된 번호는 건너뜀(기존 이름·체크 상태 그대로)</td>
+</tr>
+<tr>
+<td>새 번호</td>
+<td>발송 대상(체크)으로 등록</td>
+</tr>
+<tr>
+<td>잘못된 행</td>
+<td>휴대폰 번호 형식 오류, 이름에 쉼표·콜론·느낌표 등은 건너뛰고 결과 알림에 <strong>행 번호와 사유</strong> 표시</td>
+</tr>
+<tr>
+<td>엑셀 숫자 번호</td>
+<td>셀이 숫자 형식이라 앞자리 0이 빠진 번호(<code>1012345678</code>)도 자동 복원</td>
+</tr>
+<tr>
+<td>삭제는 번호 옆 <strong>×</strong>. 휴대폰(01X) 번호만 등록되고 같은 번호는 중복 등록되지 않습니다. 화면에는 가운데 자리가 가려져 표시되며, 변경은 컨테이너 재시작 없이 다음 알림부터 바로 적용됩니다. 알림 1건당 체크된 수신자 수만큼 과금됩니다.</td>
+<td></td>
+</tr>
+<tr>
+<td>6. <strong>테스트</strong> — 같은 구역에서 "사용 중"과 수신번호를 확인하고 <strong>알림톡 테스트</strong>로 수신을 확인합니다. 테스트도 <strong>체크된 수신자에게만</strong> 발송되며, 발송 전 확인창에 대상자 이름이 표시됩니다. 테스트도 승인 템플릿 형식 그대로(첫 번째 대상 서버 기준) 실제 발송되며 건당 과금됩니다.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <blockquote>인증키·발신프로필 키는 메신저·메일·AI 대화 등에 붙여 넣지 말고 서버 <code>.env</code>에만 직접 입력하세요. 노출됐다면 SureBiz 기본정보 → 내정보 → REST API 인증키에서 <strong>재발급</strong>하고(이전 키는 무효화) 아래처럼 <code>.env</code>만 교체한 뒤 컨테이너를 재생성합니다.</blockquote>
 
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/zenithnms
@@ -4336,6 +4378,11 @@ SNMP Community/포트 설정을 확인하십시오.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>2026-11-27</td>
+<td>기능개선</td>
+<td><strong>SureBiz 알림톡 수신자 전체 선택/해제 · CSV/XLSX 일괄 등록</strong> — 수신자 목록 위에 전체 선택·선택 해제 버튼 추가. 이름·휴대폰 목록을 CSV(UTF-8/CP949) 또는 XLSX 파일로 업로드해 수신자를 한꺼번에 추가(기존 목록 유지, 중복 번호 건너뜀, 새 번호는 발송 대상으로 체크, 잘못된 행은 행 번호와 사유 표시). CSV 양식 내려받기 버튼 추가.</td>
+</tr>
 <tr>
 <td>2026-11-27</td>
 <td>기능개선</td>
