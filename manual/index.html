@@ -3733,6 +3733,34 @@ FW-DMZ-01,192.168.1.2,firewall,30
 
 * 응급조치 방법 : 포털서버 작업관리자에서 CPU 사용률이 높은 IIS Process를 종료하세요.
 </code></pre></div>
+<p>알람 설정 화면의 ③ 채널 2 구역에는 실제 수신 화면 모양의 <strong>발송 내용 미리보기</strong> 그림이 있어, 어떤 정보가 어디서 채워지는지 확인할 수 있습니다 (서버명·CPU 단계는 현재 저장된 공통 설정의 첫 번째 값으로 표시).</p>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>들어가는 값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#{서버명}</code></td>
+<td>① 공통 설정의 대상 서버 중 CPU 단계에 도달한 장비의 호스트명</td>
+</tr>
+<tr>
+<td><code>#{서버IP}</code></td>
+<td>해당 장비의 등록 IP</td>
+</tr>
+<tr>
+<td><code>#{CPU}</code></td>
+<td><strong>도달한 CPU 알림 단계 값</strong> (실측값 아님 — 예: 63%면 <code>60</code>)</td>
+</tr>
+<tr>
+<td><code>#{MEMORY}</code></td>
+<td>같은 수집 시점의 실제 메모리 사용률(소수 1자리 + <code>%</code>, 수집 실패 시 <code>확인 불가</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>변수를 뺀 나머지 문구는 고정이며, 알림톡 실패 시 같은 내용이 문자(LMS, 제목 <code>[CPU 임계치 경고]</code>)로 재전송됩니다.</p>
 <p>인증 정보는 화면이 아니라 서버의 <code>.env</code>(git 미추적)에 넣고, <strong>수신 휴대폰 번호는 알람 설정 탭에서 추가·삭제</strong>합니다.</p>
 <table>
 <thead>
@@ -4308,6 +4336,11 @@ SNMP Community/포트 설정을 확인하십시오.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>2026-11-27</td>
+<td>기능개선</td>
+<td><strong>SureBiz 알림톡 발송 내용 미리보기 그림 추가</strong> — 알람 설정 ③ 채널 2 구역에 실제 카카오톡 수신 화면 모양으로 승인 템플릿 본문을 보여 주고, 변수 4개(서버명·서버IP·CPU·MEMORY)에 번호를 붙여 각각 어떤 값이 들어가는지 설명. 고정 문구 변경 불가·문자 재전송·과금 안내 포함.</td>
+</tr>
 <tr>
 <td>2026-11-27</td>
 <td>개선</td>
